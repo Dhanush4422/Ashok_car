@@ -1,0 +1,10 @@
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
+
+# Dependencies (if any added later)
+node_modules/
+
+# Local temporary review screenshots
+review/

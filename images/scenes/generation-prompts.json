@@ -1,0 +1,62 @@
+[
+  {
+    "key": "esevai",
+    "prompt": "Use case: photorealistic-natural. Asset type: wide 16:9 website hero background photograph. Create an authentic-looking editorial scene of a modest, tidy digital document assistance counter in a small Tamil Nadu town, India. A friendly Indian staff member in a simple navy shirt sits behind a desk assisting an adult customer with generic paper forms, with a desktop monitor, compact document scanner and small fingerprint reader on the counter. Natural candid human poses, anatomically correct hands. The desk and people occupy the RIGHT two thirds of the wide composition; the LEFT third is a softly blurred dark navy interior with little visual detail so white website text can be placed over it. Cool daylight from the right, subtle warm wood, realistic worn surfaces, no luxurious corporate office. Premium natural photography, restrained navy, warm grey and soft blue palette, 35mm lens. All papers and screens are illegible generic forms. No Aadhaar logo, government seals, identity card numbers, readable personal data, visible brand names, text, signage, watermark or decorative UI graphics. This is an illustrative service scene, not a specific real business.",
+    "source": "C:\\Users\\chenn\\.codex\\generated_images\\01a18767-c641-7e11-8780-c16d527bb9ca\\exec-6777706b-0822-4d8f-8fd1-9457643aa919.png",
+    "method": "Built-in image generation",
+    "files": {
+      "desktop": "images/scenes/esevai.jpg",
+      "mobile": "images/scenes/esevai-small.jpg"
+    }
+  },
+  {
+    "key": "print",
+    "prompt": "Use case: photorealistic-natural. Asset type: wide 16:9 website hero background photograph. A real-looking modern neighborhood print and copy studio in Tamil Nadu, India. Close editorial view of a high quality office laser printer feeding clean sheets onto an output tray, small neat stacks of paper and a workstation in the softly blurred background. A person's hands in the far right sorting fresh prints, realistic mechanics and paper texture. Printer and papers on RIGHT two thirds of frame; LEFT third a dark navy soft-focus shop interior kept quiet for white website text. Soft window daylight and controlled contrast, cinematic but believable commercial photography, navy grey white with restrained warm wood. Crisp tactile materials, 35mm lens, shallow depth of field. No visible equipment logos, no brands, no readable text on paper or signs, no watermark, no vector drawings or rendered-looking machinery.",
+    "source": "C:\\Users\\chenn\\.codex\\generated_images\\01a18767-c641-7e11-8780-c16d527bb9ca\\exec-7c433206-f777-4c05-9fb5-e1bc56c044e2.png",
+    "method": "Built-in image generation",
+    "files": {
+      "desktop": "images/scenes/print.jpg",
+      "mobile": "images/scenes/print-small.jpg"
+    }
+  },
+  {
+    "key": "auto",
+    "prompt": "Use case: photorealistic-natural. Asset type: wide 16:9 website hero background photograph. A realistic small, clean independent car service workshop in Tamil Nadu, India. Silver compact hatchback with bonnet raised, experienced Indian mechanic wearing clean navy work clothes inspecting the engine, a tool trolley nearby. Mechanic and car mostly on RIGHT two thirds; LEFT third a softly darkened navy workshop wall with quiet negative space for white website text overlay. Natural daylight spilling into garage, rich but restrained navy grey and silver palette, high-end editorial automotive photograph with real practical workshop details, not a luxury showroom. Realistic anatomy, correctly shaped car and tools, cinematic lens depth, subtle wear. No readable license plate, logos, manufacturer emblems, signage, text, watermark or vector graphics.",
+    "source": "C:\\Users\\chenn\\.codex\\generated_images\\01a18767-c641-7e11-8780-c16d527bb9ca\\exec-78d4db72-10d5-44eb-81ae-d282b7d2c7b7.png",
+    "method": "Built-in image generation",
+    "files": {
+      "desktop": "images/scenes/auto.jpg",
+      "mobile": "images/scenes/auto-small.jpg"
+    }
+  },
+  {
+    "key": "documents",
+    "prompt": "Use case: photorealistic-natural. Asset type: wide 16:9 editorial website section photo. Close view of an Indian service desk from a comfortable three-quarter overhead angle: an adult staff member's anatomically correct hand holding a pen and pointing to a generic application form on a clipboard, a customer hand resting nearby, neat folders, plain envelope, small stamp pad and a closed navy notebook. No faces needed. Soft natural daylight, warm light grey wooden desk, restrained navy white and stone palette, realistic premium photography, tactile paper and pen, calm trustworthy atmosphere. Composition should crop well for both wide horizontal banners and portrait cards, important action near center. All writing is blurred and unreadable. No government insignia, no Aadhaar card, personal data, signatures, identifiable numbers, logos, text overlays or watermark.",
+    "source": "C:\\Users\\chenn\\.codex\\generated_images\\01a18767-c641-7e11-8780-c16d527bb9ca\\exec-ab85e7dc-fdc0-4b23-a5df-a003f434ef39.png",
+    "method": "Built-in image generation",
+    "files": {
+      "desktop": "images/scenes/documents.jpg",
+      "mobile": "images/scenes/documents-small.jpg"
+    }
+  },
+  {
+    "key": "binding",
+    "prompt": "Use case: photorealistic-natural. Asset type: wide 16:9 editorial website section photograph. Beautiful realistic still life in a modest professional print finishing studio in India: stack of neatly bound navy hardcover academic project books, one grey spiral-bound report partly open with blank white pages, a clean guillotine paper cutter softly out of focus behind. Meticulous binding detail, natural paper edges, subtle linen texture on covers, warm neutral counter, cool window light. Restrained navy grey ivory palette matching a professional service website. Important subjects near center so image crops gracefully to cards and horizontal banners. High detail real commercial photography, subtle shadows. No readable titles, logos, branding, gold lettering, text overlays, watermark, clip art or 3D-render appearance.",
+    "source": "C:\\Users\\chenn\\.codex\\generated_images\\01a18767-c641-7e11-8780-c16d527bb9ca\\exec-53c2af7e-7fcf-4c44-9443-c1891f3d8ffa.png",
+    "method": "Built-in image generation",
+    "files": {
+      "desktop": "images/scenes/binding.jpg",
+      "mobile": "images/scenes/binding-small.jpg"
+    }
+  },
+  {
+    "key": "coaching",
+    "prompt": "Use case: photorealistic-natural. Asset type: wide 16:9 editorial website service illustration photograph. Inside a stationary compact learner hatchback safely parked on a quiet suburban Tamil Nadu road in daylight, viewed from the back seat looking slightly to front right. Adult Indian woman learner seated at the RIGHT-HAND-DRIVE steering wheel, seatbelt on, hands correctly placed on wheel; calm Indian male instructor in passenger seat to the LEFT gently pointing to the road ahead. Both wearing simple everyday clothes and seatbelts. Natural respectful interaction, believable right-hand-drive interior, real dashboard and steering geometry, correct hands. Outside windshield soft trees and modest South Indian neighborhood, no traffic hazard. Real natural candid photography, restrained navy beige grey with soft greenery, 35mm lens. This is a generic illustration of patient coaching, not portraits of the actual named instructors. No text, branding, watermark, visible car logo or readable license plates.",
+    "source": "C:\\Users\\chenn\\.codex\\generated_images\\01a18767-c641-7e11-8780-c16d527bb9ca\\exec-f93c5d5a-541e-4969-94cc-c8828a4533db.png",
+    "method": "Built-in image generation",
+    "files": {
+      "desktop": "images/scenes/coaching.jpg",
+      "mobile": "images/scenes/coaching-small.jpg"
+    }
+  }
+]

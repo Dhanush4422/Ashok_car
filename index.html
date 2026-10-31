@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+    <meta content="web_standard" name="shell-type">
+    <title>Ashok Driving School &amp; 4-in-1 Hub | RTE Complex Perambakkam</title>
+    <link rel="preload" as="image" href="images/hero-driving-dusk.png" fetchpriority="high">
+    <link rel="stylesheet" href="styles/difference.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+    <script src="scripts/difference.js" defer></script>
+    <script src="scripts/responsive.js" defer></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#005bbf",
+                        "primary-container": "#1a73e8",
+                        "primary-light": "#e8f1fc",
+                        tertiary: "#bb1712",
+                        "tertiary-container": "#df3429",
+                        accent: "#00c48c",
+                        "surface-dark": "#0f172a",
+                        "surface-dim": "#f8fafc",
+                        "surface-card": "#ffffff",
+                        "border-subtle": "rgba(226, 232, 240, 0.8)",
+                        "on-surface": "#0f172a",
+                        "on-surface-variant": "#475569",
+                        navy: {
+                            DEFAULT: '#0A192F',
+                            light: '#112240',
+                            dark: '#060F1E'
+                        },
+                        royal: {
+                            DEFAULT: '#1A73E8',
+                            dark: '#1557B0'
+                        },
+                        learner: {
+                            DEFAULT: '#D93025',
+                            dark: '#B3261E'
+                        },
+                        signal: {
+                            DEFAULT: '#FCC934',
+                            dark: '#E5B01B'
+                        },
+                        asphalt: '#0F172A'
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                        heading: ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    boxShadow: {
+                        'glow-primary': '0 0 25px -5px rgba(0, 91, 191, 0.35)',
+                        'glow-tertiary': '0 0 25px -5px rgba(187, 23, 18, 0.35)',
+                        'card-modern': '0 10px 30px -5px rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(226, 232, 240, 0.7)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @layer base {
+            body {
+                overscroll-behavior: none;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        @keyframes driveCar {
+            0% {
+                transform: translateX(-10%);
+            }
+
+            50% {
+                transform: translateX(105%);
+            }
+
+            50.01% {
+                transform: translateX(-10%) scaleX(-1);
+            }
+
+            100% {
+                transform: translateX(105%) scaleX(-1);
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: scale(1.04);
+                opacity: 1;
+            }
+        }
+
+        .car-motion {
+            animation: driveCar 16s ease-in-out infinite alternate;
+        }
+
+        .pulse-cta {
+            animation: pulseGlow 2.8s ease-in-out infinite;
+        }
+
+        #step-svg-car {
+            transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @keyframes roadForward {
+            0% {
+                stroke-dashoffset: 0;
+            }
+            100% {
+                stroke-dashoffset: -120;
+            }
+        }
+
+        .anim-road-fwd {
+            animation: roadForward 0.6s linear infinite;
+        }
+
+        /* Hero: one clear message, a quiet moving backdrop, and proof below. */
+        .driving-hero {
+            position: relative;
+            isolation: isolate;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            background: #071426;
+        }
+
+        .hero-media,
+        .hero-shade,
+        .hero-road {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .hero-media { overflow: hidden; }
+
+        .hero-media-panel {
+            position: absolute;
+            inset: -2%;
+            background-image: url('images/hero-driving-dusk.png');
+            background-size: cover;
+            background-position: center 66%;
+            filter: saturate(1.02);
+            animation: heroFloat 18s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+
+        .hero-media-panel-1 { opacity: .78; }
+
+        .hero-media-panel-2 {
+            opacity: .24;
+            transform: scale(1.1);
+            animation-duration: 22s;
+            /* Layer the sky for depth without creating a second, ghosted car. */
+            mask-image: linear-gradient(180deg, #000, transparent 42%);
+        }
+
+        .hero-shade {
+            background: linear-gradient(90deg, rgba(5, 16, 33, .96), rgba(5, 16, 33, .78) 40%, rgba(5, 16, 33, .18) 100%),
+                linear-gradient(0deg, #071426 2%, transparent 35%, rgba(5, 16, 33, .2));
+        }
+
+        .hero-road {
+            top: auto;
+            bottom: 104px;
+            height: 180px;
+            opacity: .35;
+            mask-image: linear-gradient(90deg, transparent, #000 20%, #000 75%, transparent);
+        }
+
+        .hero-road-markings {
+            stroke-dasharray: 24 48;
+            animation: hero-road-travel 4s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            align-items: start;
+            gap: 64px;
+            width: 100%;
+            max-width: 1280px;
+            min-height: 552px;
+            margin: 0 auto;
+            padding: 74px 24px 80px;
+        }
+
+        .hero-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 22px;
+            color: #a4e8ed;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+
+        .hero-location::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #34d399;
+            box-shadow: 0 0 14px #34d39980;
+        }
+
+        .hero-title {
+            max-width: 650px;
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(44px, 4.65vw, 68px);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -.045em;
+        }
+
+        .hero-title span {
+            display: block;
+            color: #67e8df;
+            background: linear-gradient(100deg, #72b6ff, #67e8f9 50%, #34d399);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-intro {
+            margin-top: 20px;
+            color: #cbd5e1;
+            font-size: clamp(15px, 1.4vw, 18px);
+            line-height: 1.7;
+        }
+
+        .hero-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+            margin: 22px 0 0;
+            padding: 0;
+            list-style: none;
+            color: #e2e8f0;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .hero-benefits li { display: flex; align-items: center; gap: 7px; }
+        .hero-benefits .material-symbols-outlined { font-size: 17px; color: #5eead4; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+        .hero-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 14px 22px;
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .07);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            transition: background .2s, transform .2s;
+        }
+
+        .hero-action:hover { background: rgba(255, 255, 255, .14); transform: translateY(-2px); }
+        .hero-action-primary { background: #10b981; border-color: #10b981; color: #041b1b; }
+        .hero-action-primary:hover { background: #34d399; }
+        .hero-action .material-symbols-outlined { font-size: 20px; }
+
+        .hero-film {
+            display: block;
+            width: 100%;
+            max-width: 410px;
+            margin: 12px 0 0 auto;
+            padding: 7px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .22);
+            border-radius: 20px;
+            background: rgba(6, 17, 34, .75);
+            box-shadow: 0 20px 60px #0005;
+            backdrop-filter: blur(12px);
+            text-align: left;
+            cursor: pointer;
+            transition: border-color .25s, transform .25s;
+        }
+
+        .hero-film:hover { border-color: #67e8f9; transform: translateY(-3px); }
+        .hero-film-frame { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 14px; }
+        .hero-film-frame::after { content: ''; position: absolute; inset: 0; background: #07142630; }
+        .hero-film-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-play {
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            top: 50%;
+            display: grid;
+            place-items: center;
+            width: 62px;
+            height: 62px;
+            border: 1px solid #9ceefc;
+            border-radius: 50%;
+            background: rgba(5, 23, 43, .88);
+            color: white;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 9px #67e8f91a;
+        }
+        .hero-play .material-symbols-outlined { font-size: 31px; font-variation-settings: 'FILL' 1; }
+        .hero-film-caption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 9px 9px; }
+        .hero-film-caption strong { display: block; color: #f1f5f9; font-size: 13px; font-weight: 700; }
+        .hero-film-caption small { display: block; margin-top: 4px; color: #a8b8ca; font-size: 11px; }
+        .hero-film-caption > .material-symbols-outlined { font-size: 21px; color: #67e8f9; }
+
+        .hero-motion-toggle {
+            position: absolute;
+            z-index: 2;
+            right: max(24px, calc((100% - 1232px) / 2));
+            bottom: 138px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            min-height: 36px;
+            padding: 6px 10px;
+            border: 1px solid #ffffff24;
+            border-radius: 20px;
+            background: #071426b3;
+            color: #cbd5e1;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        .hero-motion-toggle .material-symbols-outlined { font-size: 16px; }
+        .driving-hero :is(a, button):focus-visible { outline: 3px solid #67e8f9; outline-offset: 5px; }
+
+        .hero-stats {
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+            border-top: 1px solid #ffffff24;
+            background: rgba(5, 16, 32, .83);
+            backdrop-filter: blur(16px);
+        }
+        .hero-stats dl {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 28px 24px;
+        }
+        .hero-stat { display: flex; flex-direction: column; gap: 5px; padding-left: 38px; border-left: 1px solid #ffffff1f; }
+        .hero-stat:first-child { padding-left: 0; border-left: 0; }
+        .hero-stat dt { order: 1; color: #a9b8cb; font-size: 11px; font-weight: 500; letter-spacing: .025em; }
+        .hero-stat dd { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -.04em; line-height: 1.2; }
+        .hero-stat:nth-child(1) dd { color: #67e8f9; }
+        .hero-stat:nth-child(3) dd { color: #fbbf24; }
+        .hero-stat:nth-child(4) dd { color: #34d399; }
+
+        @keyframes heroFloat {
+            from { transform: scale(1.04) translate3d(0, 0, 0); }
+            to { transform: scale(1.1) translate3d(-1.5%, -1%, 0); }
+        }
+        @keyframes hero-road-travel { to { stroke-dashoffset: -144; } }
+        .driving-hero[data-motion-paused='true'] :is(.hero-media-panel, .hero-road-markings),
+        .driving-hero[data-motion-visible='false'] :is(.hero-media-panel, .hero-road-markings) { animation-play-state: paused; }
+
+        @media (min-width: 1500px) {
+            .hero-content { min-height: 600px; padding-top: 88px; }
+        }
+        @media (max-width: 1023px) {
+            .hero-content { gap: 32px; min-height: 510px; padding-top: 64px; }
+            .hero-title { font-size: clamp(42px, 5.6vw, 58px); }
+            .hero-film { margin-top: 38px; }
+            .hero-benefits { flex-direction: column; }
+            .hero-stat { padding-left: 24px; }
+        }
+        @media (max-width: 767px) {
+            .hero-content { grid-template-columns: 1fr; gap: 34px; padding: 56px 24px 64px; }
+            .hero-title { font-size: clamp(42px, 8.5vw, 60px); }
+            .hero-location { margin-bottom: 18px; font-size: 10px; }
+            .hero-intro { max-width: 290px; margin-top: 16px; }
+            .hero-benefits { gap: 12px; margin-top: 20px; }
+            .hero-actions { margin-top: 26px; }
+            .hero-action { padding: 13px 17px; font-size: 12px; }
+            .hero-film { width: 100%; max-width: 430px; margin: 0; }
+            .hero-media-panel { background-position: 65% center; }
+            .hero-shade { background: linear-gradient(180deg, #051021e6, #051021b3 55%, #051021d9); }
+            .hero-road { bottom: 190px; }
+            .hero-motion-toggle { bottom: 232px; right: 24px; }
+            .hero-stats dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 0; padding: 26px 24px; }
+            .hero-stat { padding-left: 24px; }
+            .hero-stat:nth-child(3) { padding-left: 0; border-left: 0; }
+            .hero-stat dd { font-size: 29px; }
+        }
+        @media (max-width: 359px) {
+            .hero-content { padding-right: 20px; padding-left: 20px; }
+            .hero-title { font-size: 38px; }
+            .hero-actions { flex-direction: column; }
+            .hero-stat dt { font-size: 10px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .driving-hero *, .driving-hero *::after { animation: none !important; transition: none !important; }
+            .hero-media-panel { will-change: auto; }
+            .hero-motion-toggle { display: none; }
+        }
+    
+        /* Gallery & Lightbox Styles */
+        .shadow-soft {
+            box-shadow: 0 12px 32px -8px rgba(10, 25, 47, 0.06), 0 4px 12px -2px rgba(10, 25, 47, 0.03);
+        }
+        .shadow-hover {
+            box-shadow: 0 24px 48px -12px rgba(26, 115, 232, 0.14), 0 8px 16px -4px rgba(10, 25, 47, 0.05);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    </style>
+<link rel="stylesheet" href="styles/responsive.css">
+<link rel="stylesheet" href="styles/mobile-menu.css">
+<link rel="stylesheet" href="styles/site-design.css">
+<script src="scripts/site-design.js" defer></script>
+<link rel="stylesheet" href="styles/realistic-scenes.css">
+<script src="scripts/realistic-scenes.js" defer></script>
+<link rel="stylesheet" href="styles/driving-sections.css">
+<script src="scripts/driving-sections.js" defer></script>
+<link rel="stylesheet" href="styles/mobile-refinements.css">
+<link rel="stylesheet" href="styles/gallery-lightbox.css">
+</head>
+
+<body
+    class="site-design bg-[#f8fafc] text-on-surface font-sans antialiased overflow-x-hidden selection:bg-primary-container selection:text-white pb-20 lg:pb-0">
+<header class="site-header">
+    <div class="site-header-shell">
+        <a class="site-brand" href="index.html" aria-label="Ashok 4-in-1 Hub home"><span class="site-brand-logo"><img src="images/logo.png" alt="" width="46" height="46"></span><span class="brand-copy"><strong>Ashok 4-in-1 Hub</strong><small>RTE Complex · Perambakkam</small></span></a>
+        <nav class="site-desktop-nav" aria-label="Main navigation"><a href="index.html" data-page-link="index.html" aria-current="page">Driving School</a>
+<a href="esevai.html" data-page-link="esevai.html">Aadhaar / e-Sevai</a>
+<a href="print.html" data-page-link="print.html">Xerox &amp; Binding</a>
+<a href="auto-care.html" data-page-link="auto-care.html">Car Care</a></nav>
+        <div class="site-header-actions">
+            <a class="site-header-phone" href="tel:+919443200000">94432 00000</a>
+            <a class="site-header-trial" href="https://wa.me/919443200000?text=Hello%20Ashok%20Hub%2C%20I%20have%20a%20service%20enquiry." target="_blank" rel="noopener">Get in touch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+            <button class="site-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-navigation" aria-haspopup="dialog">
+                <svg data-menu-open-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg data-menu-close-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" hidden><path d="m6 6 12 12M6 18 18 6"/></svg>
+            </button>
+        </div>
+    </div>
+    <div class="site-mobile-menu" id="mobile-navigation" role="dialog" aria-modal="true" aria-label="Mobile navigation" hidden>
+        <div class="mobile-menu-backdrop" data-menu-dismiss aria-hidden="true"></div>
+        <div class="mobile-drawer">
+            <div class="mobile-drawer-header">
+                <button class="mobile-drawer-close" type="button" aria-label="Close navigation menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+                <a class="mobile-drawer-brand" href="index.html" aria-label="Ashok 4-in-1 Hub home"><span class="site-brand-logo"><img src="images/logo.png" alt="" width="46" height="46"></span><span class="brand-copy"><strong>Ashok 4-in-1 Hub</strong><small>RTE Complex · Perambakkam</small></span></a>
+            </div>
+            <p class="drawer-eyebrow">Explore the hub</p>
+            <nav class="mobile-drawer-nav" aria-label="Mobile page links"><a href="index.html" data-page-link="index.html" aria-current="page">Driving School</a>
+<a href="esevai.html" data-page-link="esevai.html">Aadhaar / e-Sevai</a>
+<a href="print.html" data-page-link="print.html">Xerox &amp; Binding</a>
+<a href="auto-care.html" data-page-link="auto-care.html">Car Care</a></nav>
+            <div class="mobile-drawer-contact"><p>One place. Four everyday services.<span>RTE Complex · Perambakkam</span></p><a class="mobile-drawer-whatsapp" href="https://wa.me/919443200000?text=Hello%20Ashok%20Hub%2C%20I%20have%20a%20service%20enquiry." target="_blank" rel="noopener" aria-label="Chat with Ashok Hub on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></div>
+            <div class="mobile-drawer-actions"><a class="mobile-drawer-call" href="tel:+919443200000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 3 4 1 1 5-2 2c2 3 3 4 6 5l2-2 5 1 1 4c-1 4-6 3-11 0S1 8 3 5Z"/></svg>CALL DESK</a><a class="mobile-drawer-book" href="https://wa.me/919443200000?text=Hello%20Ashok%20Hub%2C%20I%20have%20a%20service%20enquiry." target="_blank" rel="noopener">GET IN TOUCH <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+        </div>
+    </div>
+</header>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+<main class="pt-24 sm:pt-28" id="main-content" tabindex="-1">
+        <!-- HERO: calm coaching, real roads, and a moving driving backdrop -->
+        <section class="driving-hero" id="home" aria-labelledby="hero-heading" data-motion-paused="false">
+            <div id="hero-motion" aria-hidden="true">
+                <div class="hero-media">
+                    <div class="hero-media-panel hero-media-panel-1"></div>
+                    <div class="hero-media-panel hero-media-panel-2"></div>
+                </div>
+                <div class="hero-shade"></div>
+                <svg class="hero-road" viewBox="0 0 1440 180" preserveAspectRatio="none" fill="none">
+                    <path d="M-80 155C310 160 570 150 850 94S1240 20 1520 44" stroke="#67e8f9" stroke-opacity=".13" stroke-width="46"/>
+                    <path d="M-80 155C310 160 570 150 850 94S1240 20 1520 44" stroke="#a5f3fc" stroke-opacity=".5" stroke-width="1"/>
+                    <path class="hero-road-markings" d="M-80 155C310 160 570 150 850 94S1240 20 1520 44" stroke="#a5f3fc" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="hero-content">
+                <div class="hero-copy">
+                    <p class="hero-location">Ashok Driving School · Perambakkam</p>
+                    <h1 class="hero-title" id="hero-heading">Learn to <span>actually drive.</span></h1>
+                    <p class="hero-intro">Patient coaching. Real roads. Confident you.</p>
+                    <ul class="hero-benefits" aria-label="Your lesson includes">
+                        <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Zero-anger coaching</li>
+                        <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Free doorstep pickup</li>
+                        <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Dual-control safety</li>
+                    </ul>
+                    <div class="hero-actions">
+                        <a class="hero-action hero-action-primary"
+                            href="https://wa.me/919443200000?text=Hello%20Ashok%20Driving%20School%2C%20I%20want%20to%20know%20instant%20fee%20structure%20and%20slot%20timings"
+                            rel="noopener" target="_blank">
+                            <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+                            WhatsApp Fees &amp; Slots
+                            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                        </a>
+                        <a class="hero-action" href="tel:+919443200000">
+                            <span class="material-symbols-outlined" aria-hidden="true">call</span>Call Us
+                        </a>
+                    </div>
+                </div>
+                <button class="hero-film" type="button" onclick="openVideoModal()" aria-label="Watch a real driving lesson in Perambakkam">
+                    <span class="hero-film-frame">
+                        <img alt="View from inside a learner car during a Perambakkam driving lesson" src="images/hero-film-thumb.jpg" decoding="async">
+                        <span class="hero-play" aria-hidden="true"><span class="material-symbols-outlined">play_arrow</span></span>
+                    </span>
+                    <span class="hero-film-caption">
+                        <span><strong>Real lessons. Real roads.</strong><small>Watch a lesson in Perambakkam · 4:15 min</small></span>
+                        <span class="material-symbols-outlined" aria-hidden="true">north_east</span>
+                    </span>
+                </button>
+            </div>
+            <button class="hero-motion-toggle" id="hero-motion-toggle" type="button" aria-controls="hero-motion" aria-pressed="false" aria-label="Pause background animation">
+                <span class="material-symbols-outlined" aria-hidden="true">pause</span>
+                <span class="hero-motion-label">Pause motion</span>
+            </button>
+            <div class="hero-stats" aria-label="Ashok Driving School at a glance">
+                <dl>
+                    <div class="hero-stat"><dt>Years Active</dt><dd>12+</dd></div>
+                    <div class="hero-stat"><dt>Learners Certified</dt><dd>3,000+</dd></div>
+                    <div class="hero-stat"><dt>Justdial Rating</dt><dd>4.9★</dd></div>
+                    <div class="hero-stat"><dt>Fear Mentorship</dt><dd>Zero</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             RTE COMPLEX 4-IN-1 MULTI-SERVICE HUB BAR & SERVICES SHOWCASE
+             ===================================================================== -->
+        <nav class="page-section-nav" aria-label="On this page"><div><span class="section-nav-label">On this page</span><a href="#why-us">Why Ashok</a><a href="#gallery">Gallery</a><a href="#curriculum">Learning journey</a><a href="#pickup">Pickup</a><a href="#mentors">Instructors</a><a href="#videos">Videos</a><a href="#reviews">Reviews</a></div></nav>
+
+        <!-- RTE COMPLEX 4-PILLAR SPOTLIGHT BANNER -->
+        <section class="hub-overview" id="hub-spotlight-section"><div class="hub-overview-inner"><div class="overview-heading"><div><p class="section-kicker">One address. Four services.</p><h2>Your everyday essentials.<br>All together, at Ashok.</h2></div><p>Learn to drive, get your paperwork sorted, print a project or care for your car. Find us opposite Perambakkam Bus Stop.</p></div><div class="hub-directory"><a class="hub-directory-card" href="#why-us"><figure class="service-photo directory-photo"><img src="images/scenes/coaching.jpg" srcset="images/scenes/coaching-small.jpg 800w, images/scenes/coaching.jpg 1600w" sizes="(max-width: 767px) 100vw, 50vw" width="1600" height="900" alt="Illustration of this service" loading="lazy" decoding="async"><figcaption>AI service illustration</figcaption></figure><div class="directory-card-top"><span class="mono-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 7 2-4h10l2 4M3 8h18v11H3zM6 19v2m12-2v2M6 12h2m8 0h2M3 15h18"/></svg></span><span class="directory-card-number">01 / 04</span></div><h3>Driving School</h3><p>Patient coaching, dual-control cars and doorstep pickup.</p><span class="directory-card-link">See the Ashok difference<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a><a class="hub-directory-card" href="esevai.html"><figure class="service-photo directory-photo"><img src="images/scenes/esevai.jpg" srcset="images/scenes/esevai-small.jpg 800w, images/scenes/esevai.jpg 1600w" sizes="(max-width: 767px) 100vw, 50vw" width="1600" height="900" alt="Illustration of this service" loading="lazy" decoding="async"><figcaption>AI service illustration</figcaption></figure><div class="directory-card-top"><span class="mono-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><circle cx="8" cy="11" r="2"/><path d="M5 16c0-3 6-3 6 0m3-6h5m-5 4h3"/></svg></span><span class="directory-card-number">02 / 04</span></div><h3>Aadhaar &amp; e-Sevai</h3><p>Certificates, document checklists and digital service assistance.</p><span class="directory-card-link">Explore e-Sevai<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a><a class="hub-directory-card" href="print.html"><figure class="service-photo directory-photo"><img src="images/scenes/print.jpg" srcset="images/scenes/print-small.jpg 800w, images/scenes/print.jpg 1600w" sizes="(max-width: 767px) 100vw, 50vw" width="1600" height="900" alt="Illustration of this service" loading="lazy" decoding="async"><figcaption>AI service illustration</figcaption></figure><div class="directory-card-top"><span class="mono-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6zM17 12h1"/></svg></span><span class="directory-card-number">03 / 04</span></div><h3>Xerox &amp; Binding</h3><p>Copies, laser prints and a neat finish for your project.</p><span class="directory-card-link">Explore printing<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a><a class="hub-directory-card" href="auto-care.html"><figure class="service-photo directory-photo"><img src="images/scenes/auto.jpg" srcset="images/scenes/auto-small.jpg 800w, images/scenes/auto.jpg 1600w" sizes="(max-width: 767px) 100vw, 50vw" width="1600" height="900" alt="Illustration of this service" loading="lazy" decoding="async"><figcaption>AI service illustration</figcaption></figure><div class="directory-card-top"><span class="mono-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 3-3 3 3 3 3-3a5 5 0 0 1-6 6l-8 8a2 2 0 0 1-3-3l8-8a5 5 0 0 1 6-6Z"/></svg></span><span class="directory-card-number">04 / 04</span></div><h3>Car Care</h3><p>Servicing, insurance assistance and rentals for your next journey.</p><span class="directory-card-link">Explore car care<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a></div></div></section>
+
+        <!-- THE ASHOK DIFFERENCE: an interactive road through four benefits -->
+        <section class="difference-section" id="why-us" aria-labelledby="difference-heading" data-route-ready="false">
+            <div class="difference-container">
+                <div class="difference-heading visual-heading"><div>
+                    <div class="difference-eyebrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m7 3-4 18M17 3l4 18M12 3v3m0 4v4m0 4v3" stroke-linecap="round"/></svg>
+                        The Ashok Standard
+                    </div>
+                    <h2 id="difference-heading">Why Ashok Driving School<br>is built <span>different.</span></h2>
+                    <p>A safer start. A calmer coach. A lesson that comes to you.</p>
+                </div><figure class="service-photo heading-photo motion-photo"><img src="images/scenes/coaching.jpg" srcset="images/scenes/coaching-small.jpg 800w, images/scenes/coaching.jpg 1600w" sizes="(max-width: 767px) 100vw, 50vw" width="1600" height="900" alt="Illustrative view of patient driving instruction" loading="lazy" decoding="async"><figcaption>AI service illustration</figcaption></figure></div>
+                <div class="difference-experience">
+                    <div class="difference-map" aria-label="Animated driving journey connecting our four benefits">
+                        <div class="difference-map-top">
+                            <p>Your confidence, mapped.</p>
+                            <span class="difference-live">The Ashok journey</span>
+                        </div>
+                        <svg class="difference-route-svg" id="difference-road-diagram" viewBox="0 0 760 530" fill="none" aria-hidden="true">
+                            <defs>
+                                <filter id="difference-car-shadow" x="-60%" y="-80%" width="220%" height="260%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#10375c" flood-opacity=".28"/></filter>
+                                <path id="difference-route" d="M110 420C110 330 250 355 250 265C250 180 380 130 465 160C550 190 655 245 655 410"/>
+                                <path data-route-leg d="M110 420C110 330 250 355 250 265"/>
+                                <path data-route-leg d="M250 265C250 180 380 130 465 160"/>
+                                <path data-route-leg d="M465 160C550 190 655 245 655 410"/>
+                                <symbol id="difference-safety-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 3v6c0 4-4.8 7.5-8 9-3.2-1.5-8-5-8-9V6l8-3Z"/><path d="m8.5 12 2.3 2.3 4.7-4.7"/></symbol>
+                                <symbol id="difference-mentor-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0l-1 1-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/><path d="M8 11c1 3 7 3 8 0"/></symbol>
+                                <symbol id="difference-pickup-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7"/></symbol>
+                                <symbol id="difference-licence-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="8.5" cy="10" r="1.5"/><path d="M6 15c0-3 5-3 5 0m3-5h4m-4 4h4"/></symbol>
+                                <symbol id="difference-check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3.2 3.2L13 4.5"/></symbol>
+                                <g id="difference-tree"><ellipse cy="16" rx="13" ry="5" fill="#9cbda7" opacity=".16"/><path d="M0 1v14" stroke="#9bb1a2" stroke-width="2"/><circle cy="-4" r="13" fill="#d4e9df" stroke="#bdd9cc"/><circle cx="-3" cy="-7" r="7" fill="#e4f2e9"/></g>
+                                <g id="difference-car-art">
+                                    <g fill="#132c47"><rect x="-19" y="-18" width="12" height="5" rx="2"/><rect x="13" y="-18" width="12" height="5" rx="2"/><rect x="-19" y="13" width="12" height="5" rx="2"/><rect x="13" y="13" width="12" height="5" rx="2"/></g>
+                                    <rect x="-29" y="-15" width="60" height="30" rx="10" fill="#fff" stroke="#0674d9" stroke-width="2"/>
+                                    <rect x="-15" y="-12" width="31" height="24" rx="6" fill="#d9eafe"/>
+                                    <path d="m10-10 6 3v14l-6 3Z" fill="#123f65"/><path d="m-11-10-5 4V6l5 4Z" fill="#2c5e84"/>
+                                    <rect x="-8" y="-9" width="17" height="18" rx="4" fill="#f9fcff"/><path d="M-2-4v8h5" stroke="#e94c4c" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M25-10v5m0 10v5" stroke="#7dd9fb" stroke-width="3" stroke-linecap="round"/><path d="M-25-9v4m0 10v4" stroke="#fa7979" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M21-8v16" stroke="#d3e4f4"/>
+                                </g>
+                            </defs>
+                            <!-- Quiet map landmarks keep the road the focus. -->
+                            <path d="M326 338c26-35 90-37 111-5s-9 78-49 80-89-37-62-75Z" fill="#e0eee9" stroke="#d0e3dc"/>
+                            <path d="M340 363c30-17 59-11 79 9" stroke="#c0dbd1" stroke-width="2" stroke-dasharray="4 5"/>
+                            <use href="#difference-tree" transform="translate(80 210)"/><use href="#difference-tree" transform="translate(115 190) scale(.8)"/>
+                            <use href="#difference-tree" transform="translate(595 83)"/><use href="#difference-tree" transform="translate(626 102) scale(.75)"/>
+                            <use href="#difference-tree" transform="translate(558 451)"/><use href="#difference-tree" transform="translate(407 330) scale(.75)"/>
+                            <g transform="translate(110 86)" stroke="#c3d5e6" stroke-width="1.5"><rect x="0" y="18" width="48" height="42" rx="4" fill="#e7eff7"/><rect x="32" y="0" width="38" height="60" rx="4" fill="#f9fcff"/><path d="M41 12h6m8 0h6m-20 12h6m8 0h6m-20 12h6m8 0h6M10 30h7m7 0h6m-20 13h7m7 0h6"/></g>
+                            <g transform="translate(575 140)" stroke="#bacfe2" stroke-width="1.5" stroke-linejoin="round"><path d="m0 21 31-24 31 24" fill="#dce9f5"/><rect x="7" y="21" width="48" height="37" rx="3" fill="#f9fcff"/><path d="M27 58V37h13v21M16 29h6v9h-6z" fill="#d4e5f4"/></g>
+                            <g transform="translate(342 443)" stroke="#b7cfe3" stroke-width="1.5"><rect width="100" height="39" rx="6" fill="#f9fcff"/><path d="M12 12h18m-18 9h18m16-9h18m-18 9h18m14-9h10m-10 9h10"/><path d="M50 0v-14m0 0h17l-4 5H50" stroke="#62a9df"/></g>
+                            <text x="392" y="500" text-anchor="middle" class="difference-map-caption">PERAMBAKKAM &amp; BEYOND</text>
+                            <!-- One continuous road; the car follows this exact geometry. -->
+                            <use href="#difference-route" stroke="#d2e2f0" stroke-width="65" stroke-linecap="round"/>
+                            <use href="#difference-route" stroke="#fff" stroke-width="57" stroke-linecap="round"/>
+                            <use href="#difference-route" stroke="#304962" stroke-width="48" stroke-linecap="round"/>
+                            <use href="#difference-route" stroke="#dce8f4" stroke-opacity=".8" stroke-width="2" stroke-dasharray="9 11"/>
+                            <use id="difference-route-progress" href="#difference-route" stroke="#46d1e9" stroke-opacity=".7" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M80 420h-17m151-155h-12m263-141v-18m223 304h16" stroke="#b2c9df" stroke-width="1.5"/>
+                            <g class="difference-waypoint is-active" transform="translate(54 420)"><circle r="16"/><text y="4" text-anchor="middle">01</text></g>
+                            <g class="difference-waypoint" transform="translate(192 265)"><circle r="16"/><text y="4" text-anchor="middle">02</text></g>
+                            <g class="difference-waypoint" transform="translate(465 95)"><circle r="16"/><text y="4" text-anchor="middle">03</text></g>
+                            <g class="difference-waypoint" transform="translate(716 410)"><circle r="16"/><text y="4" text-anchor="middle">04</text></g>
+                            <text x="110" y="476" text-anchor="middle" class="difference-map-label">Safe start</text>
+                            <text x="182" y="228" text-anchor="middle" class="difference-map-label">Calm coaching</text>
+                            <text x="465" y="61" text-anchor="middle" class="difference-map-label">Doorstep pickup</text>
+                            <text x="655" y="469" text-anchor="middle" class="difference-map-label">RTO ready</text>
+                            <g id="difference-route-car" transform="translate(110 420) rotate(-90)"><use href="#difference-car-art" filter="url(#difference-car-shadow)"/></g>
+                        </svg>
+                        <div class="difference-map-bottom">
+                            <div class="difference-map-status">
+                                <span class="difference-status-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#difference-safety-icon"/></svg></span>
+                                <div><small id="difference-route-step">Stop 01 / 04</small><strong id="difference-route-status">Dual-Control Safety</strong></div>
+                            </div>
+                            <button class="difference-drive-toggle" type="button" aria-controls="difference-road-diagram" aria-pressed="false" aria-label="Pause journey animation">
+                                <svg data-pause-icon viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 3h3v10H4zm5 0h3v10H9z"/></svg>
+                                <svg data-play-icon viewBox="0 0 16 16" fill="currentColor" hidden aria-hidden="true"><path d="m4 2 10 6-10 6Z"/></svg>
+                                <span data-drive-label>Pause drive</span>
+                            </button>
+                        </div>
+                    </div>
+                    <ol class="difference-features" aria-label="Choose a stop to explore the Ashok difference">
+                        <li><button class="difference-feature" type="button" data-difference-step="0" aria-pressed="true" aria-controls="difference-road-diagram">
+                            <span class="difference-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#difference-safety-icon"/></svg></span>
+                            <span><span class="difference-feature-title">Dual-Control Safety</span><span class="difference-feature-description">Instructor-side controls give you extra support while you practise and build confidence.</span><span class="difference-feature-proof"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#difference-check-icon"/></svg>Dual-control training</span></span><span class="difference-feature-number" aria-hidden="true">01</span>
+                        </button></li>
+                        <li><button class="difference-feature" type="button" data-difference-step="1" aria-pressed="false" aria-controls="difference-road-diagram">
+                            <span class="difference-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#difference-mentor-icon"/></svg></span>
+                            <span><span class="difference-feature-title">1-on-1 Zero-Anger Mentors</span><span class="difference-feature-description">Stall, ask, try again. Patient guidance at your pace, from your very first lesson.</span><span class="difference-feature-proof"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#difference-check-icon"/></svg>Zero-Shouting Guarantee</span></span><span class="difference-feature-number" aria-hidden="true">02</span>
+                        </button></li>
+                        <li><button class="difference-feature" type="button" data-difference-step="2" aria-pressed="false" aria-controls="difference-road-diagram">
+                            <span class="difference-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#difference-pickup-icon"/></svg></span>
+                            <span><span class="difference-feature-title">Doorstep Pick &amp; Drop</span><span class="difference-feature-description">Start at your home in Perambakkam, Mappedu, or Kilacheri. We handle the pickup and return.</span><span class="difference-feature-proof"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#difference-check-icon"/></svg>100% Free Commute</span></span><span class="difference-feature-number" aria-hidden="true">03</span>
+                        </button></li>
+                        <li><button class="difference-feature" type="button" data-difference-step="3" aria-pressed="false" aria-controls="difference-road-diagram">
+                            <span class="difference-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#difference-licence-icon"/></svg></span>
+                            <span><span class="difference-feature-title">8-Track &amp; RTO DL Pass</span><span class="difference-feature-description">Get ready with 8-track, parking, and hill-start practice, plus help through the licence process.</span><span class="difference-feature-proof"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#difference-check-icon"/></svg>99% 1st-Attempt Success</span></span><span class="difference-feature-number" aria-hidden="true">04</span>
+                        </button></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <!-- VERIFIED BUSINESS PHOTOS: campus, fleet and learners -->
+        <section id="gallery" class="gallery-section" aria-labelledby="gallery-heading">
+            <div class="gallery-container">
+                <div class="gallery-header">
+                    <div>
+                        <div class="gallery-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5 9.5 3h5L16 5.5h4A2 2 0 0 1 22 7.5v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/><path d="M18 9h.01"/></svg><span>Verified Business Photos</span></div>
+                        <h2 id="gallery-heading">Our Campus, <span>Fleet &amp; Learners</span></h2>
+                    </div>
+                    <div class="gallery-header-note">
+                        <p>Authentic captures from our Perambakkam campus, dual-control fleet, and licensing sessions.</p>
+                        <div class="gallery-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Perambakkam, Tiruvallur</div>
+                    </div>
+                </div>
+                <figure class="gallery-story" aria-label="Learner review">
+                    <div class="gallery-story-photo">
+                        <img src="images/scenes/coaching-small.jpg" srcset="images/scenes/coaching-small.jpg 800w, images/scenes/coaching.jpg 1600w" sizes="(max-width: 767px) 100vw, 46vw" width="1600" height="900" alt="Illustration of a calm lesson inside a learner car" loading="lazy" decoding="async">
+                        <span>AI lesson illustration</span>
+                    </div>
+                    <figcaption class="gallery-story-quote">
+                        <div class="gallery-story-top"><span>FROM OUR LEARNERS</span><span aria-label="5 out of 5 stars">★★★★★</span></div>
+                        <blockquote>“Super safe for women. Vinoth Anna never got frustrated when I stalled on the slope. Doorstep pickup saved me so much time!”</blockquote>
+                        <div class="gallery-story-bottom"><div class="gallery-story-person"><span class="gallery-story-avatar" aria-hidden="true">SS</span><span><strong>Sangeetha S.</strong><small>Perambakkam learner</small></span></div><a href="#reviews">More learner reviews <span aria-hidden="true">↗</span></a></div>
+                    </figcaption>
+                </figure>
+                <div class="gallery-toolbar">
+                    <div class="gallery-filters" role="group" aria-label="Filter business photos">
+                        <button type="button" class="gal-tab" onclick="filterGallery('all')" data-gcat="all" aria-pressed="true" aria-controls="gallery-grid">All Photos <span class="gallery-filter-count">6</span></button>
+                        <button type="button" class="gal-tab" onclick="filterGallery('fleet')" data-gcat="fleet" aria-pressed="false" aria-controls="gallery-grid">Training Fleet</button>
+                        <button type="button" class="gal-tab" onclick="filterGallery('learners')" data-gcat="learners" aria-pressed="false" aria-controls="gallery-grid">Our Learners</button>
+                        <button type="button" class="gal-tab" onclick="filterGallery('campus')" data-gcat="campus" aria-pressed="false" aria-controls="gallery-grid">Campus &amp; Landmarks</button>
+                    </div>
+                    <div class="gallery-results"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="2" y="2" width="4" height="4" rx="1"/><rect x="10" y="2" width="4" height="4" rx="1"/><rect x="2" y="10" width="4" height="4" rx="1"/><rect x="10" y="10" width="4" height="4" rx="1"/></svg><span id="gallery-count" aria-live="polite" aria-atomic="true">Showing 6 photos</span></div>
+                </div>
+                <div id="gallery-grid" class="gallery-grid">
+                    <button class="gal-card" type="button" data-gitem="campus" onclick="openLightbox(0)" aria-label="View photo: Ashok Driving School" aria-haspopup="dialog">
+                        <span class="gallery-photo-media">
+                            <span class="gallery-photo-unavailable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5 9.5 3h5L16 5.5h4A2 2 0 0 1 22 7.5v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/><path d="M18 9h.01"/></svg><span>Photo unavailable</span></span>
+                            <img src="images/gallery-business-signage.jpg" alt="Ashok Driving School" loading="lazy" decoding="async" onerror="this.closest('.gallery-photo-media').classList.add('is-unavailable')">
+                            <span class="gallery-photo-tag">Our school</span>
+                            <span class="gallery-photo-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 8 3 3m13 5 5-5M8 16l-5 5m13-5 5 5"/></svg></span>
+                        </span>
+                        <span class="gallery-photo-caption">
+                            <span><span class="gallery-photo-title">Ashok Driving School</span><span class="gallery-photo-subtitle">Business signage · Perambakkam</span></span>
+                            <span class="gallery-photo-index" aria-hidden="true">01</span>
+                        </span>
+                    </button>
+                    <button class="gal-card" type="button" data-gitem="campus" onclick="openLightbox(1)" aria-label="View photo: Campus &amp; Local Landmarks" aria-haspopup="dialog">
+                        <span class="gallery-photo-media">
+                            <span class="gallery-photo-unavailable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5 9.5 3h5L16 5.5h4A2 2 0 0 1 22 7.5v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/><path d="M18 9h.01"/></svg><span>Photo unavailable</span></span>
+                            <img src="images/gallery-campus-landmarks.jpg" alt="Campus &amp; Local Landmarks" loading="lazy" decoding="async" onerror="this.closest('.gallery-photo-media').classList.add('is-unavailable')">
+                            <span class="gallery-photo-tag">Campus &amp; landmarks</span>
+                            <span class="gallery-photo-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 8 3 3m13 5 5-5M8 16l-5 5m13-5 5 5"/></svg></span>
+                        </span>
+                        <span class="gallery-photo-caption">
+                            <span><span class="gallery-photo-title">Campus &amp; Local Landmarks</span><span class="gallery-photo-subtitle">A look around our local area</span></span>
+                            <span class="gallery-photo-index" aria-hidden="true">02</span>
+                        </span>
+                    </button>
+                    <button class="gal-card" type="button" data-gitem="campus" onclick="openLightbox(2)" aria-label="View photo: Training &amp; Licence Services" aria-haspopup="dialog">
+                        <span class="gallery-photo-media">
+                            <span class="gallery-photo-unavailable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5 9.5 3h5L16 5.5h4A2 2 0 0 1 22 7.5v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/><path d="M18 9h.01"/></svg><span>Photo unavailable</span></span>
+                            <img src="images/gallery-training-services.jpg" alt="Training &amp; Licence Services" loading="lazy" decoding="async" onerror="this.closest('.gallery-photo-media').classList.add('is-unavailable')">
+                            <span class="gallery-photo-tag">School information</span>
+                            <span class="gallery-photo-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 8 3 3m13 5 5-5M8 16l-5 5m13-5 5 5"/></svg></span>
+                        </span>
+                        <span class="gallery-photo-caption">
+                            <span><span class="gallery-photo-title">Training &amp; Licence Services</span><span class="gallery-photo-subtitle">School signage · Service information</span></span>
+                            <span class="gallery-photo-index" aria-hidden="true">03</span>
+                        </span>
+                    </button>
+                    <button class="gal-card" type="button" data-gitem="fleet" onclick="openLightbox(3)" aria-label="View photo: Our Training Car" aria-haspopup="dialog">
+                        <span class="gallery-photo-media">
+                            <span class="gallery-photo-unavailable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5 9.5 3h5L16 5.5h4A2 2 0 0 1 22 7.5v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/><path d="M18 9h.01"/></svg><span>Photo unavailable</span></span>
+                            <img src="images/gallery-training-fleet.jpg" alt="Our Training Car" loading="lazy" decoding="async" onerror="this.closest('.gallery-photo-media').classList.add('is-unavailable')">
+                            <span class="gallery-photo-tag">Training fleet</span>
+                            <span class="gallery-photo-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 8 3 3m13 5 5-5M8 16l-5 5m13-5 5 5"/></svg></span>
+                        </span>
+                        <span class="gallery-photo-caption">
+                            <span><span class="gallery-photo-title">Our Training Car</span><span class="gallery-photo-subtitle">A closer look at our driving fleet</span></span>
+                            <span class="gallery-photo-index" aria-hidden="true">04</span>
+                        </span>
+                    </button>
+                    <button class="gal-card" type="button" data-gitem="learners" onclick="openLightbox(4)" aria-label="View photo: Moments from Our Community" aria-haspopup="dialog">
+                        <span class="gallery-photo-media">
+                            <span class="gallery-photo-unavailable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5 9.5 3h5L16 5.5h4A2 2 0 0 1 22 7.5v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/><path d="M18 9h.01"/></svg><span>Photo unavailable</span></span>
+                            <img src="images/gallery-community-moments.jpg" alt="Moments from Our Community" loading="lazy" decoding="async" onerror="this.closest('.gallery-photo-media').classList.add('is-unavailable')">
+                            <span class="gallery-photo-tag">Our community</span>
+                            <span class="gallery-photo-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 8 3 3m13 5 5-5M8 16l-5 5m13-5 5 5"/></svg></span>
+                        </span>
+                        <span class="gallery-photo-caption">
+                            <span><span class="gallery-photo-title">Moments from Our Community</span><span class="gallery-photo-subtitle">From our business photo collection</span></span>
+                            <span class="gallery-photo-index" aria-hidden="true">05</span>
+                        </span>
+                    </button>
+                    <button class="gal-card" type="button" data-gitem="learners" onclick="openLightbox(5)" aria-label="View photo: Learning Together" aria-haspopup="dialog">
+                        <span class="gallery-photo-media">
+                            <span class="gallery-photo-unavailable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5 9.5 3h5L16 5.5h4A2 2 0 0 1 22 7.5v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/><path d="M18 9h.01"/></svg><span>Photo unavailable</span></span>
+                            <img src="images/gallery-learning-together.jpg" alt="Learning Together" loading="lazy" decoding="async" onerror="this.closest('.gallery-photo-media').classList.add('is-unavailable')">
+                            <span class="gallery-photo-tag">Our community</span>
+                            <span class="gallery-photo-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 8 3 3m13 5 5-5M8 16l-5 5m13-5 5 5"/></svg></span>
+                        </span>
+                        <span class="gallery-photo-caption">
+                            <span><span class="gallery-photo-title">Learning Together</span><span class="gallery-photo-subtitle">Faces from our school community</span></span>
+                            <span class="gallery-photo-index" aria-hidden="true">06</span>
+                        </span>
+                    </button>
+                </div>
+                <div class="gallery-footer">
+                    <div class="gallery-footer-copy"><span class="gallery-footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5 9.5 3h5L16 5.5h4A2 2 0 0 1 22 7.5v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/><path d="M18 9h.01"/></svg></span><div><strong>Want a closer look?</strong><p>Ask us for more photos from our training sessions.</p></div></div>
+                    <a class="gallery-request" href="https://wa.me/919443200000?text=I%20want%20to%20see%20more%20training%20photos%20and%20videos" rel="noopener" target="_blank">Request More Photos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+                </div>
+            </div>
+        </section>
+        <!-- INTERACTIVE 5-STEP ANIMATED SVG ROAD PROGRESS (INLANE STYLE) -->
+        <section class="driver-journey" id="curriculum" aria-labelledby="journey-heading">
+    <div class="driving-section-inner">
+        <header class="driving-section-heading"><div><p class="driving-eyebrow">Your learning journey</p><h2 id="journey-heading">Confidence,<br><span>one step at a time.</span></h2><p>From your first gear change to your licence test. Choose a stage and follow the drive.</p></div><figure class="service-photo driving-cover"><img src="images/scenes/coaching-small.jpg" srcset="images/scenes/coaching-small.jpg 800w, images/scenes/coaching.jpg 1600w" sizes="(max-width: 767px) 100vw, 400px" width="1600" height="900" alt="Illustration of a calm driving lesson inside a learner car" loading="lazy" decoding="async"><figcaption>AI service illustration</figcaption></figure></header>
+        <div class="journey-shell">
+            <div class="journey-stage-tabs" role="group" aria-label="Choose a learning stage"><button type="button" class="journey-stage-tab" id="st-btn-0" data-stage="0" aria-pressed="true" aria-controls="journey-stage-detail" aria-label="Stage 1: Cockpit & A-B-C"><span class="stage-tab-number">01</span><span class="stage-tab-short">Cockpit</span><span class="stage-tab-full">Cockpit & A-B-C</span></button><button type="button" class="journey-stage-tab" id="st-btn-1" data-stage="1" aria-pressed="false" aria-controls="journey-stage-detail" aria-label="Stage 2: Biting Point & Slopes"><span class="stage-tab-number">02</span><span class="stage-tab-short">Slopes</span><span class="stage-tab-full">Biting Point & Slopes</span></button><button type="button" class="journey-stage-tab" id="st-btn-2" data-stage="2" aria-pressed="false" aria-controls="journey-stage-detail" aria-label="Stage 3: S-Bend & Parking"><span class="stage-tab-number">03</span><span class="stage-tab-short">Parking</span><span class="stage-tab-full">S-Bend & Parking</span></button><button type="button" class="journey-stage-tab" id="st-btn-3" data-stage="3" aria-pressed="false" aria-controls="journey-stage-detail" aria-label="Stage 4: SH-50B Highway"><span class="stage-tab-number">04</span><span class="stage-tab-short">Highway</span><span class="stage-tab-full">SH-50B Highway</span></button><button type="button" class="journey-stage-tab" id="st-btn-4" data-stage="4" aria-pressed="false" aria-controls="journey-stage-detail" aria-label="Stage 5: RTO Licence Test"><span class="stage-tab-number">05</span><span class="stage-tab-short">RTO test</span><span class="stage-tab-full">RTO Licence Test</span></button></div>
+            <div class="journey-experience">
+                <div class="journey-map road-scene" data-road-scene="journey"><div class="road-scene-top"><div><span class="map-caption">THE ROAD TO CONFIDENCE</span><strong>Every lesson takes you further.</strong></div><button class="drive-toggle" data-drive-toggle="journey" type="button" aria-label="Pause learning journey animation" aria-pressed="false"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 3h3v10H4zm5 0h3v10H9z"/></svg><span>Pause drive</span></button></div>
+                    <svg class="journey-road-svg" viewBox="0 0 520 380" role="img" aria-label="A learner car drives between the five training stages"><defs>
+    <linearGradient id="car-silver" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8195af"/><stop offset=".2" stop-color="#eff5fc"/><stop offset=".48" stop-color="#fff"/><stop offset=".75" stop-color="#cfdae7"/><stop offset="1" stop-color="#758ba5"/></linearGradient>
+    <linearGradient id="car-glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0c2842"/><stop offset=".55" stop-color="#3d6685"/><stop offset="1" stop-color="#173751"/></linearGradient>
+    <radialGradient id="car-shadow"><stop stop-color="#071426" stop-opacity=".55"/><stop offset="1" stop-color="#071426" stop-opacity="0"/></radialGradient>
+    <g id="realistic-learner-car">
+        <ellipse cx="0" cy="3" rx="42" ry="24" fill="url(#car-shadow)"/>
+        <g fill="#101b2b" stroke="#39485b" stroke-width=".7"><rect x="-24" y="-19" width="12" height="7" rx="2"/><rect x="16" y="-19" width="12" height="7" rx="2"/><rect x="-24" y="12" width="12" height="7" rx="2"/><rect x="16" y="12" width="12" height="7" rx="2"/></g>
+        <path d="M-28-15Q-34-12-34-5V5Q-34 12-28 15H22Q32 14 34 7V-7Q32-14 22-15Z" fill="url(#car-silver)" stroke="#f0f6fc" stroke-width=".6"/>
+        <path d="M-26-12H21Q29-11 30-5M-26 12H21Q29 11 30 5" fill="none" stroke="#9aafc6" stroke-width=".7"/>
+        <path d="M7-11 17-10 21-6V6L17 10 7 11Z" fill="url(#car-glass)" stroke="#64819b" stroke-width=".7"/>
+        <path d="M-17-11H-8V11H-17L-22 7V-7Z" fill="url(#car-glass)" stroke="#64819b" stroke-width=".7"/>
+        <path d="M-5-12H5V12H-5Z" fill="#e3edf8"/><path d="M-4-9H4" stroke="#fff" stroke-width="1.5"/>
+        <path d="M-5-14 6-14M-5 14 6 14" stroke="#4879aa" stroke-width="2"/>
+        <path d="M9-15 12-20 16-20 15-15M9 15 12 20 16 20 15 15" fill="#b7ccdf" stroke="#7696b5" stroke-width=".6"/>
+        <path d="M29-10 32-6M29 10 32 6" stroke="#fff5ca" stroke-width="3" stroke-linecap="round"/>
+        <path d="M-30-10V-5M-30 5V10" stroke="#dd4a43" stroke-width="2.8" stroke-linecap="round"/>
+        <path d="M26-5V5M-29-4V4" stroke="#8c9eb3" stroke-width="1"/>
+        <rect x="-3.5" y="-4.5" width="7" height="9" rx="1" fill="#fff"/><path d="M-1.5-2V2H1.5" fill="none" stroke="#c52222" stroke-width="1.2"/>
+    </g>
+</defs>
+                        <defs><pattern id="journey-grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#c9d7e3"/></pattern></defs><rect width="520" height="380" fill="url(#journey-grid)"/>
+                        <path d="M10 50Q115 10 170 45T290 40L300 70Q180 115 140 80T10 90Z" fill="#dfebe5"/><path d="M340 258Q465 215 520 290V380H370Z" fill="#e0ece7"/>
+                        <g stroke="#a4b9c4" stroke-width="1.2"><path d="m360 48 27-22 27 22" fill="#cedce7"/><path d="M365 48h44v31h-44Z" fill="#fff"/><path d="M382 79V61h11v18" fill="#b9cfe0"/><path d="M43 135h47v36H43Z" fill="#fff"/><path d="m39 135 27-20 28 20" fill="#cedce7"/></g>
+                        <g fill="#a7cbb9"><circle cx="35" cy="238" r="12"/><circle cx="61" cy="205" r="10"/><circle cx="475" cy="142" r="11"/><circle cx="490" cy="166" r="9"/><circle cx="211" cy="325" r="10"/></g>
+                        <path d="M64 292C74 230 105 112 210 96S398 106 438 188S426 300 350 302" fill="none" stroke="#cad6e2" stroke-width="60" stroke-linecap="round"/>
+                        <path id="journey-route" d="M64 292C74 230 105 112 210 96S398 106 438 188S426 300 350 302" fill="none" stroke="#293c52" stroke-width="50" stroke-linecap="round"/>
+                        <path class="road-lane-markings" d="M64 292C74 230 105 112 210 96S398 106 438 188S426 300 350 302" fill="none" stroke="#f2d58b" stroke-width="2" stroke-dasharray="10 12"/>
+                        <path id="journey-route-progress" d="M64 292C74 230 105 112 210 96S398 106 438 188S426 300 350 302" fill="none" stroke="#68adf2" stroke-width="3" stroke-linecap="round"/>
+                        <g class="journey-road-stop" data-road-stop="0"><circle r="13"/><text y="4" text-anchor="middle">1</text></g><g class="journey-road-stop" data-road-stop="1"><circle r="13"/><text y="4" text-anchor="middle">2</text></g><g class="journey-road-stop" data-road-stop="2"><circle r="13"/><text y="4" text-anchor="middle">3</text></g><g class="journey-road-stop" data-road-stop="3"><circle r="13"/><text y="4" text-anchor="middle">4</text></g><g class="journey-road-stop" data-road-stop="4"><circle r="13"/><text y="4" text-anchor="middle">5</text></g>
+                        <g id="journey-car" transform="translate(64 292)"><use href="#realistic-learner-car"/></g>
+                        <text x="99" y="348" class="road-map-label">YOUR FIRST LESSON</text><text x="333" y="348" class="road-map-label">RTO READY</text>
+                    </svg>
+                    <div class="road-scene-bottom"><span><i></i><span id="journey-drive-status" role="status">Starting with the basics</span></span><span>Illustrated learning route</span></div>
+                </div>
+                <article class="journey-stage-detail" id="journey-stage-detail" aria-labelledby="step-card-title"><div class="stage-detail-top"><span id="step-card-tag">STAGE 01 · DAY 1–3</span><span id="journey-stage-count">01 / 05</span></div><h3 id="step-card-title">Cockpit Drill &amp; A-B-C Pedal Control</h3><p id="journey-stage-description">Get comfortable behind the wheel. Learn your mirrors, seating position, gears and pedals with patient support.</p><ul class="journey-outcomes" id="step-card-chips"><li>Mirror &amp; seat setup</li><li>Gear changes</li><li>Dual-control support</li></ul><div class="journey-progress"><div id="journey-progress-fill"></div></div><div class="stage-detail-footer"><span>Patient coaching. Practical progress.</span><a href="#quick-book">Find your first lesson <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div></article>
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- INTERACTIVE LIVE VILLAGE PICKUP CHECKER -->
+        <section class="driver-pickup" id="pickup" aria-labelledby="pickup-heading"><div class="driving-section-inner">
+    <header class="driving-section-heading pickup-section-heading"><div><p class="driving-eyebrow">Door-to-door service</p><h2 id="pickup-heading">Your doorstep.<br><span>Our starting line.</span></h2><p>Choose your village to check pickup coverage. We’ll help you find a lesson time that fits your day.</p></div><div class="pickup-hours"><span class="pickup-hours-dot"></span><div><small>DAILY PICKUP &amp; RETURN</small><strong>6:00 AM – 7:30 PM</strong></div></div></header>
+    <div class="pickup-experience"><div class="pickup-selection-card"><label id="pickup-village-label">Where should we pick you up?</label><div id="village-chips" class="pickup-villages" role="group" aria-labelledby="pickup-village-label"><button class="village-chip" type="button" data-village="Perambakkam Hub" aria-pressed="true">Perambakkam Hub</button><button class="village-chip" type="button" data-village="Mappedu" aria-pressed="false">Mappedu</button><button class="village-chip" type="button" data-village="Kilacheri" aria-pressed="false">Kilacheri</button><button class="village-chip" type="button" data-village="Kondancheri" aria-pressed="false">Kondancheri</button><button class="village-chip" type="button" data-village="Kuvam" aria-pressed="false">Kuvam</button><button class="village-chip" type="button" data-village="Kadambathur" aria-pressed="false">Kadambathur</button><button class="village-chip" type="button" data-village="Sriperumbudur" aria-pressed="false">Sriperumbudur</button></div>
+        <div class="pickup-result" id="pickup-status-card"><span class="pickup-result-check" aria-hidden="true">✓</span><div><small>PICKUP COVERAGE</small><strong id="selected-village-name" role="status" aria-live="polite">Perambakkam Hub</strong><p>Free doorstep pickup &amp; return</p></div></div>
+        <a class="pickup-confirm" id="pickup-whatsapp-btn" href="https://wa.me/919443200000?text=Please%20confirm%20free%20doorstep%20pickup%20at%20Perambakkam%20Hub" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>Confirm your pickup <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><p class="pickup-note">We’ll confirm your route and lesson time on WhatsApp.</p>
+    </div><div class="pickup-map-card road-scene" data-road-scene="pickup"><div class="pickup-photo-wrap"><figure class="service-photo driving-cover"><img src="images/scenes/coaching-small.jpg" srcset="images/scenes/coaching-small.jpg 800w, images/scenes/coaching.jpg 1600w" sizes="(max-width: 767px) 100vw, 400px" width="1600" height="900" alt="Illustration of a calm driving lesson inside a learner car" loading="lazy" decoding="async"><figcaption>AI service illustration</figcaption></figure><span class="pickup-photo-label">Less commuting. More confidence.</span></div><div class="road-scene-top"><div><span class="map-caption">PICKUP &amp; RETURN</span><strong id="pickup-map-village">Perambakkam Hub</strong></div><button class="drive-toggle" data-drive-toggle="pickup" type="button" aria-label="Pause pickup route animation" aria-pressed="false"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 3h3v10H4zm5 0h3v10H9z"/></svg><span>Pause drive</span></button></div>
+        <svg class="pickup-road-svg" viewBox="0 0 520 320" role="img" aria-label="A learner car travels between Ashok Hub and your doorstep">
+            <defs><pattern id="pickup-grid" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#29415d"/></pattern></defs><rect width="520" height="320" fill="url(#pickup-grid)"/>
+            <path d="M0 40Q110 0 135 65T260 88" stroke="#1b3e42" stroke-width="28" fill="none"/>
+            <g transform="translate(405 27)" stroke="#8da6c1" stroke-width="1.4"><rect width="70" height="43" rx="4" fill="#233d58"/><path d="M0 12h70M9 20h12m10 0h12m10 0h8M9 30h12m10 0h12m10 0h8"/><path d="M29 43V31h13v12" fill="#c1d9ed"/></g>
+            <g transform="translate(28 202)" stroke="#8da6c1" stroke-width="1.4"><path d="m0 27 34-26 34 26" fill="#264560"/><path d="M8 27h52v40H8Z" fill="#d4e1ee"/><path d="M29 67V43h12v24" fill="#4b718f"/></g>
+            <path d="M434 98C350 72 298 115 281 176S202 285 91 285" fill="none" stroke="#3d536d" stroke-width="54" stroke-linecap="round"/>
+            <path id="pickup-route" d="M434 98C350 72 298 115 281 176S202 285 91 285" fill="none" stroke="#1a2e45" stroke-width="44" stroke-linecap="round"/>
+            <path class="road-lane-markings" d="M434 98C350 72 298 115 281 176S202 285 91 285" fill="none" stroke="#e5c77d" stroke-width="2" stroke-dasharray="10 12"/>
+            <circle cx="434" cy="98" r="7" fill="#71b4ef" stroke="#c9e8ff" stroke-width="2"/><circle cx="91" cy="285" r="7" fill="#3bc79b" stroke="#b8f7dc" stroke-width="2"/>
+            <g fill="#356c60"><circle cx="184" cy="135" r="11"/><circle cx="204" cy="118" r="9"/><circle cx="341" cy="262" r="12"/></g>
+            <g id="pickup-car" transform="translate(434 98)"><use href="#realistic-learner-car"/></g>
+            <text x="405" y="18" class="pickup-map-label">ASHOK HUB</text><text x="26" y="190" class="pickup-map-label">YOUR DOORSTEP</text>
+        </svg><div class="road-scene-bottom"><span><i></i><span id="pickup-drive-status" role="status">Heading to your doorstep</span></span><span>Illustrated route</span></div><div class="pickup-reassurance"><div><span>Zero extra cost</span><strong>No commute fares</strong></div><div><span>Doorstep return</span><strong>Back at your home gate</strong></div></div>
+    </div></div>
+</div></section>
+        <!-- INSTRUCTOR SPOTLIGHT -->
+
+        <section class="py-16 max-w-7xl mx-auto px-4" id="mentors">
+            <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+                <div
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold text-xs uppercase tracking-wider">
+                    <span class="material-symbols-outlined text-[15px]">badge</span>
+                    Mentors
+                </div>
+                <h2 class="font-display text-3xl font-extrabold text-slate-900 tracking-tight">Meet your driving mentors.</h2>
+                <p class="text-slate-500 text-sm">Patient, calm, and dedicated to transforming nervous beginners into
+                    relaxed drivers.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- Mentor 1: Ashok Kumar Sir -->
+                <div
+                    class="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-card-modern flex flex-col sm:flex-row gap-5 items-center">
+                    <div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0 bg-slate-100 border border-slate-200">
+                        <img alt="Ashok Kumar Sir" class="w-full h-full object-cover"
+                            src="images/instructor-ashok.jpg">
+                    </div>
+                    <div class="space-y-2 flex-1 text-center sm:text-left">
+                        <div class="mentor-identity flex items-center justify-center sm:justify-start gap-2">
+                            <h3 class="font-display font-bold text-lg text-slate-900">Ashok Kumar Sir</h3>
+                            <span
+                                class="px-2 py-0.5 rounded-full bg-blue-50 text-primary font-bold text-[10px] uppercase">Founder</span>
+                        </div>
+                        <p class="text-xs text-primary font-semibold">Principal Instructor &amp; RTO Specialist</p>
+                        <p class="text-xs text-slate-500">12+ years of motor driving coaching. Successfully guided
+                            3,000+ Tiruvallur learners through their permanent DL.</p>
+                        <div class="pt-2 flex items-center justify-center sm:justify-start gap-3">
+                            <a class="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline"
+                                href="https://wa.me/919443200000?text=Hi%20Ashok%20Sir%2C%20I%20want%20to%20learn%20driving"
+                                rel="noopener" target="_blank">
+                                <span class="material-symbols-outlined text-[16px]">chat</span>
+                                WhatsApp Ashok Sir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mentor 2: Vinoth Kumar Sir -->
+                <div
+                    class="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-card-modern flex flex-col sm:flex-row gap-5 items-center">
+                    <div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0 bg-slate-100 border border-slate-200">
+                        <img alt="Vinoth Kumar Sir" class="w-full h-full object-cover"
+                            src="images/instructor-vinoth.jpg">
+                    </div>
+                    <div class="space-y-2 flex-1 text-center sm:text-left">
+                        <div class="mentor-identity flex items-center justify-center sm:justify-start gap-2">
+                            <h3 class="font-display font-bold text-lg text-slate-900">Vinoth Kumar Sir</h3>
+                            <span
+                                class="px-2 py-0.5 rounded-full bg-rose-50 text-tertiary font-bold text-[10px] uppercase">Vinoth
+                                Anna</span>
+                        </div>
+                        <p class="text-xs text-tertiary font-semibold">Zero-Anger Practical Coach</p>
+                        <p class="text-xs text-slate-500">Praised across Justdial for infinite patience in bazaar
+                            traffic. Transforms nervous learners into relaxed highway drivers.</p>
+                        <div class="pt-2 flex items-center justify-center sm:justify-start gap-3">
+                            <a class="inline-flex items-center gap-1 text-xs font-bold text-tertiary hover:underline"
+                                href="https://wa.me/919443200000?text=Hi%20Vinoth%20Anna%2C%20I%20want%20practical%20driving%20classes"
+                                rel="noopener" target="_blank">
+                                <span class="material-symbols-outlined text-[16px]">chat</span>
+                                WhatsApp Vinoth Anna
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CLEAN VERIFIED STUDENT REVIEWS -->
+        <section class="py-16 bg-slate-50 border-b border-slate-200/70" id="videos">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                    <div>
+                        <div
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 text-tertiary font-bold text-xs uppercase tracking-wider mb-2">
+                            <span class="material-symbols-outlined text-[15px]">smart_display</span>YouTube Video Hub
+                        </div>
+                        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Driving, explained in Tamil.</h2>
+                        <p class="text-slate-500 text-sm mt-1">Learn step-by-step techniques explained simply in Tamil
+                            by Ashok Sir and Vinoth Anna.</p>
+                    </div>
+                    <div class="flex items-center gap-3"><a
+                            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-tertiary hover:bg-tertiary-container text-white text-xs font-bold shadow-sm transition-all"
+                            href="https://www.youtube.com/@ashokdrivingschool5976?sub_confirmation=1" rel="noopener"
+                            target="_blank"><span
+                                class="material-symbols-outlined text-[17px]">subscriptions</span><span
+                                class="">Subscribe @ashokdrivingschool5976</span></a></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="group bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-card-modern transition-all">
+                        <div class="relative aspect-video bg-slate-900 overflow-hidden"><img
+                                alt="8-Track Driving Test Masterclass"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                src="images/hero-film-thumb.jpg"><button
+                                aria-label="Play Tamil Driving Masterclass"
+                                class="absolute inset-0 bg-slate-950/30 group-hover:bg-slate-950/40 flex items-center justify-center transition-colors cursor-pointer"
+                                onclick="openVideoModal()"><span
+                                    class="w-11 h-11 rounded-full bg-tertiary text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"><span
+                                        class="material-symbols-outlined text-[22px]"
+                                        style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span></span></button><span
+                                class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-[10px] font-mono text-white font-semibold">12:45</span>
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+                            <div><span class="text-[10px] font-bold text-primary uppercase">8-Track Ground</span>
+                                <h3 class="font-display font-bold text-sm text-slate-900 mt-1 line-clamp-2">8-Track
+                                    Driving Test Masterclass in Tamil (முதல் முயற்சியில் வெற்றி)</h3>
+                                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Exact steering rotation points and
+                                    gear control for Tiruvallur RTO exam pass.</p>
+                            </div><button
+                                class="text-xs font-bold text-tertiary hover:underline inline-flex items-center gap-1 pt-2 border-t border-slate-100 text-left"
+                                onclick="openVideoModal()">Watch Preview Clip <span
+                                    class="material-symbols-outlined text-[14px]">play_circle</span></button>
+                        </div>
+                    </div>
+                    <div
+                        class="group bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-card-modern transition-all">
+                        <div class="relative aspect-video bg-slate-900 overflow-hidden"><img
+                                alt="Bridge and incline clutch technique"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                src="images/video-clutch-thumb.jpg"><button
+                                aria-label="Play Bridge Clutch Technique"
+                                class="absolute inset-0 bg-slate-950/30 group-hover:bg-slate-950/40 flex items-center justify-center transition-colors cursor-pointer"
+                                onclick="openVideoModal()"><span
+                                    class="w-11 h-11 rounded-full bg-tertiary text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"><span
+                                        class="material-symbols-outlined text-[22px]"
+                                        style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span></span></button><span
+                                class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-[10px] font-mono text-white font-semibold">08:20</span>
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+                            <div><span class="text-[10px] font-bold text-emerald-600 uppercase">Clutch Control</span>
+                                <h3 class="font-display font-bold text-sm text-slate-900 mt-1 line-clamp-2">Bridge &amp;
+                                    Incline Half-Clutch Technique (மேட்டில் கார் நிற்காமல் போக)</h3>
+                                <p class="text-xs text-slate-500 mt-1 line-clamp-2">How to start without vehicle rolling
+                                    backwards using biting point.</p>
+                            </div><button
+                                class="text-xs font-bold text-tertiary hover:underline inline-flex items-center gap-1 pt-2 border-t border-slate-100 text-left"
+                                onclick="openVideoModal()">Watch Preview Clip <span
+                                    class="material-symbols-outlined text-[14px]">play_circle</span></button>
+                        </div>
+                    </div>
+                    <div
+                        class="group bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-card-modern transition-all">
+                        <div class="relative aspect-video bg-slate-900 overflow-hidden"><img
+                                alt="Bazaar bumper-to-bumper driving"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                src="images/video-modal-poster.jpg"><button
+                                aria-label="Play Bazaar Driving"
+                                class="absolute inset-0 bg-slate-950/30 group-hover:bg-slate-950/40 flex items-center justify-center transition-colors cursor-pointer"
+                                onclick="openVideoModal()"><span
+                                    class="w-11 h-11 rounded-full bg-tertiary text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"><span
+                                        class="material-symbols-outlined text-[22px]"
+                                        style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span></span></button><span
+                                class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-[10px] font-mono text-white font-semibold">14:10</span>
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+                            <div><span class="text-[10px] font-bold text-amber-600 uppercase">Traffic Navigation</span>
+                                <h3 class="font-display font-bold text-sm text-slate-900 mt-1 line-clamp-2">Perambakkam
+                                    Bazaar Bumper-to-Bumper Navigation</h3>
+                                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Practical live demonstration on
+                                    avoiding panic during heavy bus and two-wheeler crowd.</p>
+                            </div><button
+                                class="text-xs font-bold text-tertiary hover:underline inline-flex items-center gap-1 pt-2 border-t border-slate-100 text-left"
+                                onclick="openVideoModal()">Watch Preview Clip <span
+                                    class="material-symbols-outlined text-[14px]">play_circle</span></button>
+                        </div>
+                    </div>
+                    <div
+                        class="group bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-card-modern transition-all">
+                        <div class="relative aspect-video bg-slate-900 overflow-hidden"><img alt="RTO Checklist TN-20"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                src="images/video-rto-thumb.jpg"><button
+                                aria-label="Play RTO Checklist"
+                                class="absolute inset-0 bg-slate-950/30 group-hover:bg-slate-950/40 flex items-center justify-center transition-colors cursor-pointer"
+                                onclick="openVideoModal()"><span
+                                    class="w-11 h-11 rounded-full bg-tertiary text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"><span
+                                        class="material-symbols-outlined text-[22px]"
+                                        style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span></span></button><span
+                                class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-[10px] font-mono text-white font-semibold">06:50</span>
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+                            <div><span class="text-[10px] font-bold text-purple-700 uppercase">RTO Test Rules</span>
+                                <h3 class="font-display font-bold text-sm text-slate-900 mt-1 line-clamp-2">RTO
+                                    Inspector Checklist TN-20 Tiruvallur</h3>
+                                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Common errors students make on test
+                                    day and how our mock drills prevent them.</p>
+                            </div><button
+                                class="text-xs font-bold text-tertiary hover:underline inline-flex items-center gap-1 pt-2 border-t border-slate-100 text-left"
+                                onclick="openVideoModal()">Watch Preview Clip <span
+                                    class="material-symbols-outlined text-[14px]">play_circle</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 bg-white border-y border-slate-200/70" id="reviews"><div class="section-background-scene motion-photo" aria-hidden="true"><img src="images/scenes/coaching.jpg" srcset="images/scenes/coaching-small.jpg 800w, images/scenes/coaching.jpg 1600w" sizes="(max-width: 767px) 100vw, 50vw" width="1600" height="900" alt="" loading="lazy" decoding="async"></div>
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+                    <div>
+                        <div
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-700 font-bold text-xs uppercase tracking-wider mb-2">
+                            <span class="material-symbols-outlined text-[15px]">rate_review</span>
+                            Social Proof
+                        </div>
+                        <h2 class="font-display text-3xl font-extrabold text-slate-900 tracking-tight">Confidence, in their own words.</h2>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-display font-extrabold text-2xl text-slate-900">4.9 / 5.0</span>
+                        <div class="flex text-amber-400">
+                            <span class="material-symbols-outlined text-[18px]"
+                                style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                            <span class="material-symbols-outlined text-[18px]"
+                                style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                            <span class="material-symbols-outlined text-[18px]"
+                                style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                            <span class="material-symbols-outlined text-[18px]"
+                                style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                            <span class="material-symbols-outlined text-[18px]"
+                                style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                        </div>
+                        <span class="text-xs text-slate-400 font-semibold">(290+ Reviews)</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex text-amber-400 text-xs">
+                                ★★★★★
+                            </div>
+                            <p class="text-xs text-slate-700 leading-relaxed italic">
+                                "Ashok Sir and Vinoth Anna made clutch control so effortless. Cleared my 4-wheeler RTO
+                                test in the very first attempt!"
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200/60 mt-4 flex items-center gap-2.5">
+                            <div
+                                class="w-7 h-7 rounded-full bg-blue-100 text-primary font-bold text-xs flex items-center justify-center">
+                                AS</div>
+                            <div>
+                                <span class="text-xs font-bold text-slate-900 block leading-tight">Arul Stallone</span>
+                                <span class="text-[10px] text-slate-400">Car Learner • Justdial</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex text-amber-400 text-xs">
+                                ★★★★★
+                            </div>
+                            <p class="text-xs text-slate-700 leading-relaxed italic">
+                                "Super safe for women. Vinoth Anna never got frustrated when I stalled on the slope.
+                                Doorstep pickup saved me so much time!"
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200/60 mt-4 flex items-center gap-2.5">
+                            <div
+                                class="w-7 h-7 rounded-full bg-rose-100 text-tertiary font-bold text-xs flex items-center justify-center">
+                                SS</div>
+                            <div>
+                                <span class="text-xs font-bold text-slate-900 block leading-tight">Sangeetha S.</span>
+                                <span class="text-[10px] text-slate-400">Perambakkam Local</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex text-amber-400 text-xs">
+                                ★★★★★
+                            </div>
+                            <p class="text-xs text-slate-700 leading-relaxed italic">
+                                "Took both bike and car. Their private 8-track ground coaching completely removed my
+                                exam fear before the Tiruvallur RTO."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200/60 mt-4 flex items-center gap-2.5">
+                            <div
+                                class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center">
+                                RK</div>
+                            <div>
+                                <span class="text-xs font-bold text-slate-900 block leading-tight">Rajesh K.</span>
+                                <span class="text-[10px] text-slate-400">Dual DL Holder</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex text-amber-400 text-xs">
+                                ★★★★★
+                            </div>
+                            <p class="text-xs text-slate-700 leading-relaxed italic">
+                                "They handled all paper work, medicals, and test slot appointments smoothly. Completely
+                                transparent and honest."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200/60 mt-4 flex items-center gap-2.5">
+                            <div
+                                class="w-7 h-7 rounded-full bg-purple-100 text-purple-700 font-bold text-xs flex items-center justify-center">
+                                SV</div>
+                            <div>
+                                <span class="text-xs font-bold text-slate-900 block leading-tight">Srinivasan</span>
+                                <span class="text-[10px] text-slate-400">Mappedu Resident</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- INSTANT WHATSAPP QUICK-BOOKING DESK & VIDEO -->
+        <section class="py-16 max-w-7xl mx-auto px-4" id="quick-book">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Fast Quick-Booking Card -->
+                <div
+                    class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-card-modern flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Your next step</span>
+                        </div>
+                        <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                            Let’s find your first lesson.</h3>
+                        <p class="text-xs text-slate-500">Pick your course &amp; village. Get your schedule and fees
+                            sent straight to your phone.</p>
+                        <form class="space-y-3 pt-2" onsubmit="event.preventDefault(); launchWhatsAppBooking();">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label for="form-name" class="block text-xs font-bold text-slate-700 mb-1">Your Name</label>
+                                    <input
+                                        class="w-full text-xs rounded-xl border-slate-200 bg-slate-50 focus:bg-white focus:ring-primary focus:border-primary p-3"
+                                        id="form-name" autocomplete="name" placeholder="e.g. Anand" required="" type="text">
+                                </div>
+                                <div>
+                                    <label for="form-phone" class="block text-xs font-bold text-slate-700 mb-1">WhatsApp Number</label>
+                                    <input
+                                        class="w-full text-xs rounded-xl border-slate-200 bg-slate-50 focus:bg-white focus:ring-primary focus:border-primary p-3"
+                                        id="form-phone" autocomplete="tel" inputmode="tel" placeholder="e.g. 94432 00000" required="" type="tel">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div>
+                                    <label for="form-course" class="block text-xs font-bold text-slate-700 mb-1">Vehicle / Course</label>
+                                    <select
+                                        class="w-full text-xs rounded-xl border-slate-200 bg-slate-50 focus:bg-white focus:ring-primary focus:border-primary p-3"
+                                        id="form-course">
+                                        <option value="4-Wheeler Car Training">4-Wheeler Car</option>
+                                        <option value="Women &amp; Refresher">Women &amp; Refresher</option>
+                                        <option value="Two-Wheeler Training">2-Wheeler Mastery</option>
+                                        <option value="Car + Bike Combined">Car + Bike Combo</option>
+                                        <option value="LLR / DL Smart Card">LLR / DL License</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="form-village" class="block text-xs font-bold text-slate-700 mb-1">Pickup Village</label>
+                                    <select
+                                        class="w-full text-xs rounded-xl border-slate-200 bg-slate-50 focus:bg-white focus:ring-primary focus:border-primary p-3"
+                                        id="form-village">
+                                        <option value="Perambakkam Hub">Perambakkam Hub</option>
+                                        <option value="Mappedu">Mappedu</option>
+                                        <option value="Kilacheri">Kilacheri</option>
+                                        <option value="Kondancheri">Kondancheri</option>
+                                        <option value="Kuvam">Kuvam</option>
+                                        <option value="Kadambathur">Kadambathur</option>
+                                        <option value="Sriperumbudur">Sriperumbudur</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="form-slot" class="block text-xs font-bold text-slate-700 mb-1">Preferred Slot</label>
+                                    <select
+                                        class="w-full text-xs rounded-xl border-slate-200 bg-slate-50 focus:bg-white focus:ring-primary focus:border-primary p-3"
+                                        id="form-slot">
+                                        <option value="Early Morning (6 AM - 8 AM)">6 AM – 8 AM</option>
+                                        <option value="Morning (8 AM - 11 AM)">8 AM – 11 AM</option>
+                                        <option value="Afternoon (12 PM - 4 PM)">12 PM – 4 PM</option>
+                                        <option value="Evening (4 PM - 7:30 PM)">4 PM – 7:30 PM</option>
+                                        <option value="Weekend Only">Weekends</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pt-2">
+                                <button
+                                    class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.99]"
+                                    type="submit">
+                                    <span class="material-symbols-outlined text-[18px]">send</span>
+                                    <span class="">Connect with Ashok Driving School on WhatsApp</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="text-[11px] text-slate-400 text-center pt-3">
+                        Zero registration fees • Instant quote reply
+                    </div>
+                </div>
+                <!-- YouTube Showcase Card -->
+                <div
+                    class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-card-modern flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-tertiary text-white flex items-center justify-center font-bold">
+                                    <span class="material-symbols-outlined text-[18px]">smart_display</span>
+                                </div>
+                                <span class="font-display font-bold text-sm text-slate-900">Official Video
+                                    Channel</span>
+                            </div>
+                            <a class="px-2.5 py-1 rounded-full bg-rose-50 text-tertiary font-bold text-[10px] uppercase"
+                                href="https://www.youtube.com/@ashokdrivingschool5976" rel="noopener" target="_blank">
+                                @ashokdrivingschool5976
+                            </a>
+                        </div>
+                        <p class="text-xs text-slate-500">Watch real 8-track maneuvers and Tiruvallur bridge driving
+                            techniques explained step-by-step.</p>
+                        <div class="relative rounded-2xl overflow-hidden group aspect-video bg-slate-900 shadow-inner cursor-pointer"
+                            onclick="openVideoModal()">
+                            <img alt="Driving Lesson Video"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                                src="images/hero-film-thumb.jpg">
+                            <div class="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-tertiary text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined text-[24px]"
+                                        style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 mt-4">
+                        <button
+                            class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                            onclick="openVideoModal()">
+                            <span class="">Watch Full In-Cabin Video</span>
+                            <span class="material-symbols-outlined text-[16px]">play_circle</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- MOBILE-FIRST SLEEK BOTTOM STICKY ACTION BAR -->
+    <div class="mobile-action-bar shared-mobile-actions" aria-label="Quick contact"><a href="tel:+919443200000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 3 4 1 1 5-2 2c2 3 3 4 6 5l2-2 5 1 1 4c-1 4-6 3-11 0S1 8 3 5Z"/></svg>Call the desk</a><a href="https://wa.me/919443200000?text=Hello%20Ashok%20Hub%2C%20I%20have%20a%20service%20enquiry." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp us</a></div>
+<footer class="shared-footer">
+    <div class="shared-footer-inner">
+        <div><a class="site-brand" href="index.html" aria-label="Ashok 4-in-1 Hub home"><span class="site-brand-logo"><img src="images/logo.png" alt="" width="46" height="46"></span><span class="brand-copy"><strong>Ashok 4-in-1 Hub</strong><small>RTE Complex · Perambakkam</small></span></a><p class="footer-about">Driving lessons, document services, printing and car care. Your everyday essentials, together at RTE Complex.</p></div>
+        <div><h4>Explore our services</h4><nav aria-label="Footer navigation"><a href="index.html" data-page-link="index.html" aria-current="page">Driving School</a>
+<a href="esevai.html" data-page-link="esevai.html">Aadhaar / e-Sevai</a>
+<a href="print.html" data-page-link="print.html">Xerox &amp; Binding</a>
+<a href="auto-care.html" data-page-link="auto-care.html">Car Care</a></nav></div>
+        <div><h4>Come and say hello</h4><address>RTE Complex, Opp. Perambakkam Bus Stop<br>Near IOB ATM · Tiruvallur – 631402<br><a href="tel:+919443200000">+91 94432 00000</a></address></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Ashok 4-in-1 Multi-Service Hub.</p><p>Perambakkam, Tiruvallur · Built around your everyday.</p></div>
+</footer>
+    <!-- INTERACTIVE RICH VIDEO POPUP MODAL -->
+    <div aria-describedby="video-modal-desc" aria-labelledby="video-modal-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-3 sm:p-5 transition-all duration-300"
+        id="videoModal" role="dialog">
+        <!-- Backdrop with blur and fade -->
+        <div class="absolute inset-0 bg-black/85 backdrop-blur-md transition-opacity" id="videoBackdrop"
+            onclick="closeVideoModal()"></div>
+        <!-- Modal Dialog Container -->
+        <div class="relative w-full max-w-4xl bg-slate-950 border border-slate-800 rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden z-10 flex flex-col max-h-[92vh] transform transition-all scale-95 opacity-0 duration-300"
+            id="videoDialog">
+            <!-- Modal Header -->
+            <div class="px-5 py-4 bg-slate-900/90 border-b border-white/10 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3 min-w-0">
+                    <div
+                        class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-cyan-400 text-white flex items-center justify-center shrink-0 shadow-sm">
+                        <span class="material-symbols-outlined text-[20px]">smart_display</span>
+                    </div>
+                    <div class="truncate">
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                Live In-Cabin Training Proof
+                            </span>
+                            <span class="hidden sm:inline text-slate-400 text-xs">• Perambakkam Hub</span>
+                        </div>
+                        <h3 class="font-display text-white text-sm sm:text-base font-bold truncate mt-0.5"
+                            id="video-modal-title">
+                            Vinoth Anna Zero-Anger Cabin Session (Perambakkam Bazaar)
+                        </h3>
+                    </div>
+                </div>
+                <!-- Prominent Close Button -->
+                <button aria-label="Close video player"
+                    class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition-colors shrink-0 cursor-pointer"
+                    onclick="closeVideoModal()">
+                    <span class="material-symbols-outlined text-[20px]">close</span>
+                </button>
+            </div>
+            <!-- Video Player Area -->
+            <div class="relative bg-black aspect-video w-full overflow-hidden flex items-center justify-center group"
+                id="playerWrapper">
+                <!-- HTML5 Video / Simulation Source -->
+                <video class="w-full h-full object-cover" id="modalVideo" playsinline=""
+                    poster="images/video-modal-poster.jpg"
+                    preload="metadata">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- Center Play Overlay Indicator (hidden while playing) -->
+                <button
+                    class="absolute inset-0 w-full h-full flex items-center justify-center bg-black/40 hover:bg-black/30 transition-all cursor-pointer"
+                    id="bigPlayBtn" onclick="togglePlayPause()">
+                    <div
+                        class="w-18 h-18 sm:w-20 sm:h-20 rounded-full bg-primary/90 text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-[42px] translate-x-0.5" id="bigPlayIcon"
+                            style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+                    </div>
+                </button>
+                <!-- Top Overlay Watermark -->
+                <div class="absolute top-3 left-4 flex items-center gap-2 pointer-events-none opacity-80">
+                    <span
+                        class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-black/60 text-white backdrop-blur-sm border border-white/10">ASHOK-CAM
+                        01</span>
+                    <span
+                        class="text-[11px] font-mono text-emerald-400 px-2 py-0.5 rounded bg-emerald-950/70 border border-emerald-500/30">DUAL-BRAKE
+                        ACTIVE</span>
+                </div>
+                <!-- Video Control Bar Overlay -->
+                <div
+                    class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/95 via-black/70 to-transparent flex flex-col gap-2 transition-opacity">
+                    <!-- Interactive Progress Scrub Bar -->
+                    <div class="relative w-full h-1.5 sm:h-2 bg-white/20 rounded-full cursor-pointer group/bar overflow-hidden"
+                        id="progressBarContainer" onclick="seekVideo(event)">
+                        <div class="h-full bg-gradient-to-r from-primary via-cyan-400 to-emerald-400 w-[34%]"
+                            id="videoProgressBar"></div>
+                    </div>
+                    <!-- Controls Row -->
+                    <div class="flex items-center justify-between text-white text-xs pt-1">
+                        <div class="flex items-center gap-3">
+                            <!-- Play/Pause Toggle -->
+                            <button class="text-white hover:text-cyan-300 transition-colors p-1"
+                                onclick="togglePlayPause()" title="Play / Pause">
+                                <span class="material-symbols-outlined text-[24px]" id="miniPlayIcon"
+                                    style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+                            </button>
+                            <!-- Volume / Mute Toggle -->
+                            <button class="text-white hover:text-cyan-300 transition-colors p-1 flex items-center gap-1"
+                                onclick="toggleMute()" title="Mute / Unmute">
+                                <span class="material-symbols-outlined text-[20px]" id="volumeIcon">volume_up</span>
+                            </button>
+                            <input
+                                class="w-14 sm:w-20 accent-primary h-1 bg-white/30 rounded-lg cursor-pointer hidden sm:block"
+                                id="volumeSlider" max="1" min="0" oninput="changeVolume(this.value)" step="0.05"
+                                type="range" value="0.8">
+                            <!-- Timecode -->
+                            <div class="font-mono text-[11px] text-slate-300 tracking-wider">
+                                <span id="currentTimeDisplay" class="">01:24</span> / <span id="durationDisplay"
+                                    class="">04:15</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 sm:gap-3">
+                            <span
+                                class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-cyan-300 border border-white/10">1080p
+                                HD</span>
+                            <button
+                                class="text-slate-300 hover:text-white font-mono text-[11px] font-bold px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-all"
+                                onclick="cyclePlaybackRate(this)">1.0x</button>
+                            <button class="text-white hover:text-cyan-300 transition-colors p-1"
+                                onclick="toggleFullscreen()" title="Fullscreen">
+                                <span class="material-symbols-outlined text-[20px]">fullscreen</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Info Strip & WhatsApp Direct CTA below Player -->
+            <div
+                class="p-4 sm:p-5 bg-slate-900 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="space-y-1 text-left">
+                    <div class="flex flex-wrap items-center gap-1.5 text-[11px] font-semibold text-slate-300">
+                        <span class="text-cyan-400 font-bold">Key Highlights:</span>
+                        <span class="">Dual-Pedal Safety Demonstration</span>
+                        <span class="text-slate-500">•</span>
+                        <span class="">Zero-Shouting Guarantee</span>
+                        <span class="text-slate-500">•</span>
+                        <span class="">Perambakkam Market Maneuver</span>
+                    </div>
+                    <p class="text-xs text-slate-400" id="video-modal-desc">
+                        Filmed live inside our dual-control training Swift with beginner student in Perambakkam Bazaar.
+                    </p>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs shadow-lg transition-all"
+                        href="https://wa.me/919443200000?text=Hi%20Ashok%20Sir%2C%20I%20saw%20your%20cabin%20training%20video%20and%20want%20to%20book%20a%20slot"
+                        rel="noopener" target="_blank">
+                        <span class="material-symbols-outlined text-[18px]">chat</span>
+                        <span class="">Book Practical Slot on WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT FOR PROGRESS, VILLAGE CHECKER & WHATSAPP GENERATION -->
+    
+    <!-- =====================================================================
+         FULLSCREEN GALLERY LIGHTBOX MODAL
+         ===================================================================== -->
+    <div id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lb-title" aria-describedby="lb-sub lb-caption" tabindex="-1" class="fixed inset-0 z-[190] hidden items-center justify-center bg-navy/90 backdrop-blur-md p-4">
+        <div class="gallery-lightbox-panel bg-navy-light border border-slate-700 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl">
+            <!-- Top Bar -->
+            <div class="gallery-lightbox-header flex items-center justify-between px-5 py-3.5 border-b border-slate-800 text-white">
+                <div class="flex items-center gap-2">
+                    <span id="lb-tag" class="px-2.5 py-0.5 rounded-full bg-signal text-asphalt text-[10px] font-heading font-extrabold uppercase">Fleet</span>
+                    <span id="lb-counter" class="text-xs font-heading font-bold text-slate-400">1 / 6</span>
+                </div>
+                <button onclick="closeLightbox()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-learner text-white flex items-center justify-center transition cursor-pointer" aria-label="Close photo viewer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Image Container -->
+            <div class="gallery-lightbox-media relative h-72 sm:h-96 bg-navy flex items-center justify-center overflow-hidden">
+                <img id="lb-img" src="" alt="Ashok Driving School Gallery" class="w-full h-full object-contain relative z-10" />
+                <!-- Prev / Next Buttons -->
+                <button onclick="stepLightbox(-1)" class="absolute left-3 z-20 w-10 h-10 rounded-full bg-navy/80 hover:bg-royal text-white border border-white/15 flex items-center justify-center transition cursor-pointer" aria-label="Previous photo">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="stepLightbox(1)" class="absolute right-3 z-20 w-10 h-10 rounded-full bg-navy/80 hover:bg-royal text-white border border-white/15 flex items-center justify-center transition cursor-pointer" aria-label="Next photo">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="gallery-lightbox-thumbs" role="group" aria-label="Choose a gallery photo">
+                <button type="button" onclick="selectLightbox(0)" aria-label="Show photo 1: Ashok Driving School" aria-pressed="true"><img src="images/gallery-business-signage.jpg" alt="" loading="lazy"></button>
+                <button type="button" onclick="selectLightbox(1)" aria-label="Show photo 2: Campus and Local Landmarks" aria-pressed="false"><img src="images/gallery-campus-landmarks.jpg" alt="" loading="lazy"></button>
+                <button type="button" onclick="selectLightbox(2)" aria-label="Show photo 3: Training and Licence Services" aria-pressed="false"><img src="images/gallery-training-services.jpg" alt="" loading="lazy"></button>
+                <button type="button" onclick="selectLightbox(3)" aria-label="Show photo 4: Our Training Car" aria-pressed="false"><img src="images/gallery-training-fleet.jpg" alt="" loading="lazy"></button>
+                <button type="button" onclick="selectLightbox(4)" aria-label="Show photo 5: Moments from Our Community" aria-pressed="false"><img src="images/gallery-community-moments.jpg" alt="" loading="lazy"></button>
+                <button type="button" onclick="selectLightbox(5)" aria-label="Show photo 6: Learning Together" aria-pressed="false"><img src="images/gallery-learning-together.jpg" alt="" loading="lazy"></button>
+            </div>
+
+            <!-- Caption & CTA Footer -->
+            <div class="gallery-lightbox-footer p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-white">
+                <div class="gallery-lightbox-copy">
+                    <h4 id="lb-title" class="font-display font-extrabold text-lg">Dual-Control Training Car • Perambakkam</h4>
+                    <p id="lb-sub" class="text-xs text-slate-300 mt-0.5">A-B-C Pedal Safety • Free Doorstep Pickup</p>
+                    <p id="lb-caption" class="gallery-lightbox-caption"></p>
+                    <div id="lb-review" class="gallery-lightbox-review" hidden><span>Learner feedback · reviewer not pictured</span><p id="lb-review-quote"></p><small id="lb-review-author"></small></div>
+                </div>
+                <a id="lb-wa-btn" href="https://wa.me/919443200000?text=Hi%20Ashok%20Sir%2C%20I%20am%20enquiring%20about%20your%20training%20fleet" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-white font-heading font-bold text-xs shrink-0 transition shadow">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>Enquire on WhatsApp →</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+<script>
+        // Keep decorative driving motion optional and pause it outside the viewport.
+        const drivingHero = document.querySelector('.driving-hero');
+        const heroMotionToggle = document.getElementById('hero-motion-toggle');
+        if (drivingHero && heroMotionToggle) {
+            heroMotionToggle.addEventListener('click', () => {
+                const paused = drivingHero.dataset.motionPaused !== 'true';
+                drivingHero.dataset.motionPaused = String(paused);
+                heroMotionToggle.setAttribute('aria-pressed', String(paused));
+                heroMotionToggle.setAttribute('aria-label', paused ? 'Play background animation' : 'Pause background animation');
+                heroMotionToggle.querySelector('.material-symbols-outlined').textContent = paused ? 'play_arrow' : 'pause';
+                heroMotionToggle.querySelector('.hero-motion-label').textContent = paused ? 'Play motion' : 'Pause motion';
+            });
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(([entry]) => {
+                    drivingHero.dataset.motionVisible = String(entry.isIntersecting);
+                }).observe(drivingHero);
+            }
+        }
+
+        // Scroll progress bar with miniature car indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const bar = document.getElementById('scrollProgressBar');
+            if (bar) {
+                bar.style.width = scrolled + '%';
+            }
+        });
+
+        // Launch WhatsApp booking with custom inputs
+        function launchWhatsAppBooking() {
+            const name = encodeURIComponent(document.getElementById('form-name').value || 'Learner');
+            const phone = encodeURIComponent(document.getElementById('form-phone').value || '');
+            const course = encodeURIComponent(document.getElementById('form-course').value);
+            const village = encodeURIComponent(document.getElementById('form-village').value);
+            const slot = encodeURIComponent(document.getElementById('form-slot').value);
+
+            const msg = `Hello Ashok Driving School Perambakkam,%0A%0AI want to book a training class:%0A- Name: ${name}%0A- Phone: ${phone}%0A- Course: ${course}%0A- Pickup Village: ${village}%0A- Slot: ${slot}%0A%0APlease share fee details and start date.`;
+
+            window.open(`https://wa.me/919443200000?text=${msg}`, '_blank');
+        }
+
+        // Video Modal Handlers
+        const modal = document.getElementById('videoModal');
+        const dialog = document.getElementById('videoDialog');
+        const video = document.getElementById('modalVideo');
+        const bigPlayBtn = document.getElementById('bigPlayBtn');
+        const bigPlayIcon = document.getElementById('bigPlayIcon');
+        const miniPlayIcon = document.getElementById('miniPlayIcon');
+        const progressBar = document.getElementById('videoProgressBar');
+        const currentTimeDisplay = document.getElementById('currentTimeDisplay');
+        const durationDisplay = document.getElementById('durationDisplay');
+        const volumeIcon = document.getElementById('volumeIcon');
+
+        function openVideoModal() {
+            if (!modal) return;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+            requestAnimationFrame(() => {
+                dialog.classList.remove('scale-95', 'opacity-0');
+                dialog.classList.add('scale-100', 'opacity-100');
+            });
+
+            // Play video with audio
+            if (video) {
+                video.play().then(() => {
+                    updatePlayStateUI(true);
+                }).catch(() => {
+                    // If auto-play blocked, wait for user click
+                    updatePlayStateUI(false);
+                });
+            }
+        }
+
+        function closeVideoModal() {
+            if (!modal) return;
+            dialog.classList.remove('scale-100', 'opacity-100');
+            dialog.classList.add('scale-95', 'opacity-0');
+
+            if (video) {
+                video.pause();
+                updatePlayStateUI(false);
+            }
+
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 250);
+        }
+
+        function togglePlayPause() {
+            if (!video) return;
+            if (video.paused) {
+                video.play();
+                updatePlayStateUI(true);
+            } else {
+                video.pause();
+                updatePlayStateUI(false);
+            }
+        }
+
+        function updatePlayStateUI(isPlaying) {
+            if (isPlaying) {
+                bigPlayBtn.classList.add('opacity-0', 'pointer-events-none');
+                miniPlayIcon.textContent = 'pause';
+            } else {
+                bigPlayBtn.classList.remove('opacity-0', 'pointer-events-none');
+                miniPlayIcon.textContent = 'play_arrow';
+            }
+        }
+
+        function toggleMute() {
+            if (!video) return;
+            video.muted = !video.muted;
+            volumeIcon.textContent = video.muted ? 'volume_off' : 'volume_up';
+        }
+
+        function changeVolume(val) {
+            if (!video) return;
+            video.volume = parseFloat(val);
+            video.muted = video.volume === 0;
+            volumeIcon.textContent = video.muted ? 'volume_off' : 'volume_up';
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+
+        if (video) {
+            video.addEventListener('timeupdate', () => {
+                if (!isNaN(video.duration) && video.duration > 0) {
+                    const percent = (video.currentTime / video.duration) * 100;
+                    progressBar.style.width = percent + '%';
+                    currentTimeDisplay.textContent = formatTime(video.currentTime);
+                    durationDisplay.textContent = formatTime(video.duration);
+                }
+            });
+
+            video.addEventListener('ended', () => {
+                updatePlayStateUI(false);
+            });
+        }
+
+        function seekVideo(e) {
+            if (!video || isNaN(video.duration)) return;
+            const rect = e.currentTarget.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            video.currentTime = pos * video.duration;
+        }
+
+        function cyclePlaybackRate(btn) {
+            if (!video) return;
+            const rates = [1.0, 1.25, 1.5, 2.0];
+            const cur = video.playbackRate;
+            let nextIdx = rates.indexOf(cur) + 1;
+            if (nextIdx >= rates.length || nextIdx === -1) nextIdx = 0;
+            video.playbackRate = rates[nextIdx];
+            btn.textContent = rates[nextIdx].toFixed(1) + 'x';
+        }
+
+        function toggleFullscreen() {
+            const elem = document.getElementById('playerWrapper');
+            if (!elem) return;
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => alert(err.message));
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Escape Key listener
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+                closeVideoModal();
+            }
+        });
+
+        // 5B. PHOTO GALLERY FILTER & LIGHTBOX CONTROLLER
+        const galleryPhotos = [
+          {
+                    "url": "images/gallery-business-signage.jpg",
+                    "tag": "Our school",
+                    "title": "Ashok Driving School",
+                    "sub": "Business signage · Perambakkam",
+                    "caption": "Our local driving school and service desk in Perambakkam."
+          },
+          {
+                    "url": "images/gallery-campus-landmarks.jpg",
+                    "tag": "Campus & landmarks",
+                    "title": "Campus & Local Landmarks",
+                    "sub": "A look around our local area",
+                    "caption": "A view of the campus and familiar landmarks around our Perambakkam hub."
+          },
+          {
+                    "url": "images/gallery-training-services.jpg",
+                    "tag": "School information",
+                    "title": "Training & Licence Services",
+                    "sub": "School signage · Service information",
+                    "caption": "A closer look at the training and licence services displayed at the school."
+          },
+          {
+                    "url": "images/gallery-training-fleet.jpg",
+                    "tag": "Training fleet",
+                    "title": "Our Training Car",
+                    "sub": "A closer look at our driving fleet",
+                    "caption": "One of the cars from our driving-school business photo collection.",
+                    "review": "Ashok Sir and Vinoth Anna made clutch control so effortless. Cleared my 4-wheeler RTO test in the very first attempt!",
+                    "reviewAuthor": "Arul Stallone · car learner"
+          },
+          {
+                    "url": "images/gallery-community-moments.jpg",
+                    "tag": "Our community",
+                    "title": "Moments from Our Community",
+                    "sub": "From our business photo collection",
+                    "caption": "A moment shared in our local business photo collection.",
+                    "review": "Super safe for women. Vinoth Anna never got frustrated when I stalled on the slope. Doorstep pickup saved me so much time!",
+                    "reviewAuthor": "Sangeetha S. · Perambakkam learner"
+          },
+          {
+                    "url": "images/gallery-learning-together.jpg",
+                    "tag": "Our community",
+                    "title": "Learning Together",
+                    "sub": "Faces from our school community",
+                    "caption": "People and moments from the Ashok Driving School community.",
+                    "review": "Took both bike and car. Their private 8-track ground coaching completely removed my exam fear before the Tiruvallur RTO.",
+                    "reviewAuthor": "Rajesh K. · dual DL holder"
+          }
+];
+
+        function filterGallery(cat) {
+            const gallery = document.getElementById('gallery');
+            if (!gallery) return;
+            let visible = 0;
+            gallery.querySelectorAll('.gal-card').forEach(card => {
+                const matches = cat === 'all' || card.dataset.gitem === cat;
+                card.hidden = !matches;
+                if (matches) visible++;
+            });
+            gallery.querySelectorAll('.gal-tab').forEach(button => {
+                button.setAttribute('aria-pressed', String(button.dataset.gcat === cat));
+            });
+            document.getElementById('gallery-grid').classList.toggle('is-filtered', cat !== 'all');
+            document.getElementById('gallery-count').textContent = 'Showing ' + visible + (visible === 1 ? ' photo' : ' photos');
+        }
+
+        let currentLbIndex = 0;
+        let previousGalleryFocus = null;
+        let galleryBodyOverflow = '';
+        function openLightbox(idx) {
+            if (!galleryPhotos[idx]) return;
+            previousGalleryFocus = document.activeElement;
+            galleryBodyOverflow = document.body.style.overflow;
+            currentLbIndex = idx;
+            updateLightboxView();
+            const modal = document.getElementById('lightbox-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                modal.querySelector('button').focus();
+            }
+        }
+
+        function stepLightbox(dir) {
+            currentLbIndex = (currentLbIndex + dir + galleryPhotos.length) % galleryPhotos.length;
+            updateLightboxView();
+        }
+
+        function selectLightbox(index) {
+            if (!galleryPhotos[index]) return;
+            currentLbIndex = index;
+            updateLightboxView();
+        }
+
+        function updateLightboxView() {
+            const item = galleryPhotos[currentLbIndex];
+            const imgEl = document.getElementById('lb-img');
+            const tagEl = document.getElementById('lb-tag');
+            const counterEl = document.getElementById('lb-counter');
+            const titleEl = document.getElementById('lb-title');
+            const subEl = document.getElementById('lb-sub');
+            const captionEl = document.getElementById('lb-caption');
+            const reviewEl = document.getElementById('lb-review');
+            const waBtn = document.getElementById('lb-wa-btn');
+
+            if (imgEl) {
+                imgEl.src = item.url;
+                imgEl.alt = item.title;
+            }
+            if (tagEl) tagEl.textContent = item.tag;
+            if (counterEl) counterEl.textContent = (currentLbIndex + 1) + ' / ' + galleryPhotos.length;
+            if (titleEl) titleEl.textContent = item.title;
+            if (subEl) subEl.textContent = item.sub;
+            if (captionEl) captionEl.textContent = item.caption;
+            if (reviewEl) {
+                reviewEl.hidden = !item.review;
+                document.querySelector('.gallery-lightbox-panel').toggleAttribute('data-has-review', Boolean(item.review));
+                if (item.review) {
+                    document.getElementById('lb-review-quote').textContent = '“' + item.review + '”';
+                    document.getElementById('lb-review-author').textContent = item.reviewAuthor;
+                }
+            }
+            document.querySelectorAll('.gallery-lightbox-thumbs button').forEach((button, index) => {
+                button.setAttribute('aria-pressed', String(index === currentLbIndex));
+                if (index === currentLbIndex) button.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+            });
+            if (waBtn) {
+                const msg = encodeURIComponent('Hi Ashok Sir, I saw the photo "' + item.title + '" on your website and want to enquire about classes/services.');
+                waBtn.href = 'https://wa.me/919443200000?text=' + msg;
+            }
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = galleryBodyOverflow;
+                if (previousGalleryFocus && previousGalleryFocus.isConnected) {
+                    previousGalleryFocus.focus({ preventScroll: true });
+                }
+            }
+        }
+
+        // Keyboard navigation for Lightbox
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('lightbox-modal');
+            if (modal && !modal.classList.contains('hidden')) {
+                if (['Escape', 'ArrowLeft', 'ArrowRight'].includes(e.key)) e.preventDefault();
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') stepLightbox(-1);
+                if (e.key === 'ArrowRight') stepLightbox(1);
+                if (e.key === 'Tab') {
+                    const controls = [...modal.querySelectorAll('button, a[href]')];
+                    const first = controls[0];
+                    const last = controls[controls.length - 1];
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            }
+        });
+
+        // Close on background click
+        document.addEventListener('click', (e) => {
+            const modal = document.getElementById('lightbox-modal');
+            if (modal && e.target === modal) {
+                closeLightbox();
+            }
+        });
+
+    
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+/* Shared phone layouts: full-width controls, readable type, and safe-area spacing. */
+/* In-page links use the short, cancellable animation in responsive.js. */
+html.scroll-smooth { scroll-behavior: auto; }
+@media (max-width: 767px) {
+    html.scroll-smooth { scroll-behavior: auto; scroll-padding-top: 88px; }
+    .site-design main > section { scroll-margin-top: 0 !important; }
+    .site-design .site-header { top: max(8px, env(safe-area-inset-top, 0px)); }
+    .site-design .site-header .site-header-shell { min-height: 64px; padding: 9px 12px; }
+    .site-design .site-header .site-header-trial { display: none !important; }
+    .site-design .site-header .site-brand { gap: 9px; }
+    .site-design .site-header .brand-copy strong { font-size: 14px; }
+    .site-design .site-header .brand-copy small { font-size: 9px; }
+    .site-design .site-header .site-header-actions { gap: 0; }
+    .site-design > main[class] { padding-top: calc(88px + env(safe-area-inset-top, 0px)); }
+    body.site-design { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+    .site-design .page-section-nav { padding-inline: 16px; }
+    .site-design .page-section-nav > div { gap: 18px; padding-right: 12px; scroll-padding-inline: 16px; }
+    .site-design .page-section-nav a { min-height: 48px; font-size: 11px; }
+
+    /* Seven filters fill four complete rows, rather than wrapping by text length. */
+    .site-design #services-grid { padding: 16px; }
+    .site-design #services-grid #service-filter-container {
+        display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%; gap: 8px; overflow: visible; padding: 0;
+    }
+    .site-design #services-grid .filter-tab-btn {
+        display: flex; align-items: center; justify-content: center;
+        width: 100%; min-width: 0; min-height: 46px; margin: 0;
+        padding: 10px 8px; border-radius: 10px; white-space: normal;
+        color: #51647b; font-size: 11px; font-weight: 600; line-height: 1.45; text-align: center;
+    }
+    .site-design #services-grid .filter-tab-btn:first-child { grid-column: 1 / -1; }
+    .site-design #services-grid .filter-tab-btn.active { background: #005bbf !important; border-color: #005bbf; }
+    .site-design #service-results { padding: 24px 16px 40px; }
+    .site-design #bento-services-container { gap: 18px; }
+    .site-design main .hub-card.p-6 { padding: 20px; border-radius: 16px; }
+    .site-design main .hub-card > .card-photo { width: calc(100% + 40px); margin: -20px -20px 20px; height: 170px; }
+    .site-design main .hub-card h3 { font-size: 18px; line-height: 1.45; }
+    .site-design main .hub-card p { font-size: 13px; line-height: 1.8; }
+    .site-design .service-bento-card > div:last-child,
+    .site-design #auto-services .hub-card > div:last-child { gap: 12px; flex-wrap: wrap; line-height: 1.7; }
+    .site-design .service-bento-card > div:last-child a,
+    .site-design #auto-services .hub-card > div:last-child a { display: inline-flex; align-items: center; min-height: 40px; }
+
+    .site-design .has-photo-hero { padding: 38px 18px 62px; }
+    .site-design .has-photo-hero h1 { font-size: clamp(34px, 9vw, 46px); }
+    .site-design .has-photo-hero .service-intro { margin-top: 20px; line-height: 1.75; }
+    .site-design .service-hero-actions { margin-top: 25px; }
+    .site-design .service-hero-actions a { min-height: 48px; font-size: 12px; }
+    .site-design .service-meta { margin-top: 23px; line-height: 1.7; }
+    .site-design .hero-photo-note { margin-top: 26px; }
+    .site-design .gallery-toolbar { flex-direction: column; align-items: stretch; gap: 13px; }
+    .site-design .gallery-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 7px; }
+    .site-design .gallery-filters .gal-tab { min-width: 0; min-height: 44px; padding: 9px 6px; font-size: 11px; }
+    .site-design #calculator-section { padding: 38px 16px; }
+    .site-design #calculator-section > .grid { gap: 22px; }
+    .site-design .print-calculator-card { position: relative; top: auto; padding: 20px; }
+    .site-design .print-calculator-card :is(button, input) { min-height: 48px; }
+    .site-design .print-calculator-card button { font-size: 11px; line-height: 1.5; }
+    .site-design #print-whatsapp-btn { white-space: normal; }
+    .site-design #checklist-section, .site-design #aeps-section { padding-inline: 16px; }
+    .site-design #checklist-section .p-6 { padding: 20px; }
+    .site-design #checklist-display-area > div > div:first-child { gap: 10px; flex-wrap: wrap; }
+    .site-design #faq-section { padding: 40px 16px; }
+    .site-design #faq-section button { padding: 17px 16px; font-size: 14px; line-height: 1.6; }
+    .site-design #auto-services { padding: 40px 16px; }
+    .site-design #auto-services .grid { gap: 20px; }
+    .site-design #quick-book { padding-inline: 16px; }
+    .site-design #quick-book > .grid { gap: 22px; }
+
+    .site-design .shared-mobile-actions {
+        inset: auto 0 0; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+        border: 0; border-top: 1px solid #dce4ee; border-radius: 0;
+        background: #fffffff5; box-shadow: 0 -6px 22px #0a192f09;
+    }
+    .site-design .shared-mobile-actions a { min-height: 46px; border-radius: 10px; background: #0a192f; color: white; font-size: 12px; }
+    .site-design .shared-mobile-actions a:last-child { background: #15803d; }
+}
+@media (max-width: 479px) {
+    .site-design .has-photo-hero .hero-photo-note { display: none; }
+    .site-design .has-photo-hero .service-meta span + span::before { display: none; }
+    .site-design .has-photo-hero .service-meta { display: grid; gap: 4px; }
+    .site-design .shared-footer-inner { grid-template-columns: 1fr; gap: 26px; }
+    .site-design .shared-footer-inner > div:first-child { grid-column: auto; }
+}
+@media (max-width: 359px) {
+    .site-design .site-header .brand-copy strong { font-size: 12px; }
+    .site-design .site-header .brand-copy small { font-size: 8px; }
+    .site-design .site-header .site-brand-logo { width: 36px; height: 36px; }
+}

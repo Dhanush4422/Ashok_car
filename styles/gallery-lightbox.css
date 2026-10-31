@@ -1,0 +1,130 @@
+/* Clean white gallery viewer for verified business photos. */
+#lightbox-modal {
+    background: rgba(17, 32, 48, .62);
+    backdrop-filter: blur(12px);
+}
+#lightbox-modal .gallery-lightbox-panel {
+    max-width: 860px;
+    overflow: hidden;
+    border: 1px solid #dbe5ef;
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 0 30px 90px rgba(7, 25, 43, .28);
+    scrollbar-width: none;
+}
+#lightbox-modal .gallery-lightbox-panel::-webkit-scrollbar { display: none; }
+#lightbox-modal .gallery-lightbox-header {
+    padding: 15px 22px;
+    border-color: #e4ebf2;
+    background: #fff;
+    color: #102840;
+}
+#lb-counter { color: #647b91; }
+#lightbox-modal .gallery-lightbox-header button {
+    width: 42px;
+    height: 42px;
+    background: #eef3f7;
+    color: #1b3851;
+}
+#lightbox-modal .gallery-lightbox-header button:hover { background: #dfeaf3; }
+#lightbox-modal .gallery-lightbox-media {
+    isolation: isolate;
+    height: min(57dvh, 530px);
+    background: #f3f6f9;
+}
+#lightbox-modal .gallery-lightbox-panel[data-has-review] .gallery-lightbox-media { height: min(46dvh, 420px); }
+#lightbox-modal .gallery-lightbox-media::before {
+    content: "";
+    position: absolute;
+    inset: -45px;
+    z-index: -1;
+    background: radial-gradient(circle at 15% 20%, #e7edf3 0, transparent 34%),
+        radial-gradient(circle at 85% 80%, #e8eff3 0, transparent 32%);
+    pointer-events: none;
+}
+#lightbox-modal .gallery-lightbox-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, #eef3f745, transparent 38%, transparent 62%, #eef3f745);
+    pointer-events: none;
+}
+#lb-img {
+    display: block;
+    width: calc(100% - 124px);
+    height: calc(100% - 24px);
+    object-fit: contain;
+    border-radius: 13px;
+    background: transparent;
+    filter: drop-shadow(0 12px 20px rgba(28, 57, 81, .15));
+}
+#lightbox-modal .gallery-lightbox-media button {
+    width: 46px;
+    height: 46px;
+    border: 1px solid #cfdeea;
+    background: rgba(255,255,255,.94);
+    color: #173c5d;
+    backdrop-filter: blur(12px);
+}
+#lightbox-modal .gallery-lightbox-media button:hover { background: #173c5d; color: #fff; }
+#lightbox-modal .gallery-lightbox-thumbs {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 10px 16px;
+    border-bottom: 1px solid #e4ebf2;
+    background: #fff;
+    scrollbar-width: none;
+}
+#lightbox-modal .gallery-lightbox-thumbs::-webkit-scrollbar { display: none; }
+#lightbox-modal .gallery-lightbox-thumbs button {
+    flex: 0 0 52px;
+    width: 52px;
+    height: 48px;
+    overflow: hidden;
+    padding: 2px;
+    border: 2px solid transparent;
+    border-radius: 9px;
+    background: transparent;
+    cursor: pointer;
+    opacity: .55;
+    transition: opacity .2s, border-color .2s;
+}
+#lightbox-modal .gallery-lightbox-thumbs button:hover { opacity: .85; }
+#lightbox-modal .gallery-lightbox-thumbs button[aria-pressed='true'] { border-color: #1473bb; opacity: 1; }
+#lightbox-modal .gallery-lightbox-thumbs img { display: block; width: 100%; height: 100%; border-radius: 5px; object-fit: cover; }
+#lightbox-modal .gallery-lightbox-footer { padding: 19px 22px; background: #fff; color: #102840; }
+#lightbox-modal .gallery-lightbox-copy { min-width: 0; }
+#lightbox-modal .gallery-lightbox-caption { margin-top: 8px; color: #486179; font-size: 12px; line-height: 1.55; }
+#lightbox-modal .gallery-lightbox-review { max-width: 520px; margin-top: 13px; padding-left: 13px; border-left: 2px solid #69bda4; }
+#lightbox-modal .gallery-lightbox-review[hidden] { display: none; }
+#lightbox-modal .gallery-lightbox-review span { color: #137b66; font-size: 10px; font-weight: 700; letter-spacing: .04em; }
+#lightbox-modal .gallery-lightbox-review p { margin: 5px 0 4px; color: #1c3449; font-size: 12px; line-height: 1.5; }
+#lightbox-modal .gallery-lightbox-review small { color: #667f94; font-size: 10px; }
+#lb-sub { color: #637c91; }
+#lightbox-modal button:focus-visible, #lightbox-modal a:focus-visible { outline-color: #1473bb; }
+@media (max-width: 767px) {
+    #lightbox-modal .gallery-lightbox-panel { border-radius: 22px; }
+    #lightbox-modal .gallery-lightbox-header { padding: 10px 14px; }
+    #lightbox-modal .gallery-lightbox-media { height: min(50dvh, 420px); }
+    #lightbox-modal .gallery-lightbox-panel[data-has-review] .gallery-lightbox-media { height: min(31dvh, 250px); }
+    #lb-img { width: calc(100% - 96px); height: calc(100% - 16px); border-radius: 9px; }
+    #lightbox-modal .gallery-lightbox-media button { width: 44px; height: 44px; }
+    #lightbox-modal .gallery-lightbox-thumbs { justify-content: flex-start; gap: 5px; padding: 7px 10px; }
+    #lightbox-modal .gallery-lightbox-thumbs button { flex-basis: 46px; width: 46px; height: 42px; }
+    #lightbox-modal .gallery-lightbox-footer { padding: 15px 16px; }
+    #lightbox-modal .gallery-lightbox-caption { font-size: 11px; }
+}
+@media (max-height: 600px) and (max-width: 767px) {
+    #lightbox-modal .gallery-lightbox-media {
+        height: min(49dvh, 340px);
+        max-height: calc(100dvh - 225px);
+    }
+    #lightbox-modal .gallery-lightbox-panel[data-has-review] .gallery-lightbox-media { height: min(34dvh, 220px); }
+}
+@media (prefers-reduced-motion: reduce) {
+    #lightbox-modal .gallery-lightbox-media::before { transform: none; }
+}
